@@ -1,19 +1,67 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/hero-morocco.jpg";
+
+import heroMorocco from "@/assets/hero-morocco.jpg";
+import heroFes from "@/assets/hero-fes.jpg";
+import heroTangier from "@/assets/hero-tangier.jpg";
+import heroChefchaouen from "@/assets/hero-chefchaouen.jpg";
+import heroOuarzazate from "@/assets/hero-ouarzazate.jpg";
+import heroEssaouira from "@/assets/hero-essaouira.jpg";
+import heroMerzouga from "@/assets/hero-merzouga.jpg";
+import heroMeknes from "@/assets/hero-meknes.jpg";
+import heroAgadir from "@/assets/hero-agadir.jpg";
+import heroDades from "@/assets/hero-dades.jpg";
+import heroMarrakech from "@/assets/marrakech-square.jpg";
+
+const slides = [
+  { src: heroMorocco, city: "Sahara Desert", subtitle: "Endless golden dunes" },
+  { src: heroMarrakech, city: "Marrakech", subtitle: "The Red City" },
+  { src: heroFes, city: "Fes", subtitle: "Ancient medina & culture" },
+  { src: heroChefchaouen, city: "Chefchaouen", subtitle: "The Blue Pearl" },
+  { src: heroMerzouga, city: "Merzouga", subtitle: "Gateway to the Sahara" },
+  { src: heroTangier, city: "Tangier", subtitle: "Where continents meet" },
+  { src: heroOuarzazate, city: "Ouarzazate", subtitle: "Hollywood of Africa" },
+  { src: heroEssaouira, city: "Essaouira", subtitle: "Wind city of the Atlantic" },
+  { src: heroMeknes, city: "Meknes", subtitle: "Imperial grandeur" },
+  { src: heroAgadir, city: "Agadir", subtitle: "Sun & surf paradise" },
+  { src: heroDades, city: "Dades Valley", subtitle: "Dramatic gorges & oases" },
+];
 
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const slide = slides[current];
+
   return (
     <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Camel caravan in Sahara desert"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-hero" />
-      </div>
+      {/* Background images with crossfade */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src={slide.src}
+            alt={slide.city}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-hero" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
@@ -35,15 +83,21 @@ const HeroSection = () => {
           <br />
           <span className="text-gradient-gold">of Morocco</span>
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="font-body text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10"
-        >
-          Personalized journeys crafted by expert guides. From imperial cities to Sahara dunes,
-          experience Morocco like never before.
-        </motion.p>
+
+        {/* City indicator */}
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={current}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}
+            className="font-body text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10"
+          >
+            {slide.city} — {slide.subtitle}
+          </motion.p>
+        </AnimatePresence>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,6 +117,19 @@ const HeroSection = () => {
             Plan Your Trip
           </a>
         </motion.div>
+
+        {/* Slide dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                i === current ? "bg-accent w-6" : "bg-primary-foreground/40"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Scroll indicator */}
