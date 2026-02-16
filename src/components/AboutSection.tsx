@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Users, MapPin, Star } from "lucide-react";
-import galleryRiad from "@/assets/gallery-riad.jpg";
+import aboutImg from "@/assets/About.jpg";
 
 const stats = [
-  { icon: Award, label: "Years Experience", value: "17+" },
+  { icon: Award, label: "Years Experience", value: "18+" },
   { icon: Users, label: "Happy Travelers", value: "5000+" },
   { icon: MapPin, label: "Destinations", value: "50+" },
   { icon: Star, label: "Rating", value: "4.9" },
@@ -28,7 +28,7 @@ const AboutSection = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-elevated">
               <img
-                src={galleryRiad}
+                src={aboutImg}
                 alt="Traditional Moroccan riad"
                 className="w-full h-[500px] object-cover"
               />
@@ -45,18 +45,21 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">About Us</p>
+            <p className="font-body text-accent text-sm tracking-widest uppercase mb-4">About Rad Morocco</p>
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
-              RAD Morocco
+              More Than Just a Destination
             </h2>
             <p className="font-body text-muted-foreground leading-relaxed mb-4">
-              RAD Morocco is a boutique travel agency founded by <strong className="text-foreground">Radouane EL AOUAN</strong>, a Professional Certified National Tour Leader by the Ministry of Tourism since 2007.
+              Morocco is not just a destination — it is a layered, living culture that deserves to be experienced with depth and understanding.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed mb-4">
-              As a member of the Tour Guides Federation, Radouane has been organizing and conducting tours around Morocco for groups and individuals. His guiding experience led him to create RAD Morocco, aiming to provide uniquely designed experiences for guests.
+              Rad Morocco was founded by <strong className="text-foreground">Radouane El Aouan</strong>, a Certified National Tour Guide since 2007, with over 18 years of professional experience in Morocco’s tourism industry.
+            </p>
+            <p className="font-body text-muted-foreground leading-relaxed mb-4">
+              Throughout his career, Rad has worked extensively with American and British travelers, international tour operators, and travel professionals seeking authentic, well-structured experiences. His expertise goes beyond guiding — it includes itinerary design, logistical planning, supplier coordination, and deep on-the-ground knowledge of Morocco’s diverse regions.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed mb-8">
-              With excellent collaborations with hotels, transportation agencies, and tour guides across Morocco, we meet the expectations of all different travelers.
+              What distinguishes Rad is not only experience, but perspective. Having worked closely with international markets for nearly two decades, he understands the expectations, travel styles, and standards required to create seamless and meaningful journeys. From the Atlas Mountains to the Sahara, from imperial cities to coastal retreats, every route is designed with precision, realism, and cultural depth.
             </p>
 
             {/* Stats */}

@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import logo from "@/assets/logo-rad.png";
+import logo from "@/assets/RAD_BRAND_LOGO.png";
 
 const Footer = () => {
   return (
@@ -8,9 +8,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="RAD Morocco" className="h-12 w-auto brightness-0 invert" />
-              <span className="font-heading text-xl font-bold">RAD Morocco</span>
+            <div className="flex items-center gap-3 mb-6">
+              <img 
+                src={logo} 
+                alt="RAD Morocco" 
+                className="h-12 md:h-16 w-auto brightness-0 invert transition-opacity hover:opacity-90" 
+              />
+              <span className="font-heading text-xl md:text-2xl font-bold">RAD Morocco</span>
             </div>
             <p className="font-body text-sm text-primary-foreground/70 leading-relaxed">
               A boutique travel agency based in Morocco, crafting personalized journeys since 2007. Experience the magic of Morocco with expert-guided tours.

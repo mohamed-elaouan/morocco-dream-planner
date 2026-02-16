@@ -8,9 +8,13 @@ const tourOptions = [
   "Morocco Gems (12 Days)",
   "Exotic Morocco (14 Days)",
   "Desert Escape (12 Days)",
-  "Day Trip - From Rabat",
-  "Day Trip - From Casablanca",
-  "Day Trip - From Marrakech",
+  "Hidden gems of Casablanca",
+  "Food tasting tour of Casablanca",
+  "Jewish heritage tour",
+  "Explore Rabat - Day trip",
+  "Explore Marrakech - Day trip",
+  "Day Trip to Tangier via Fast Train",
+  "Private Travel Consulting",
   "Custom Tour",
 ];
 
@@ -114,17 +118,32 @@ const ReservationSection = () => {
               <div className="space-y-2">
                 <label className="flex items-center gap-2 font-body text-sm font-medium text-foreground">
                   <MapPin className="h-4 w-4 text-accent" />
-                  Tour
+                  Tour / Service
                 </label>
                 <select
                   name="tour"
                   required
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                  className="w-full rounded-lg border border-border bg-background px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all cursor-pointer hover:border-accent/50"
                 >
-                  <option value="">Select a tour</option>
-                  {tourOptions.map((t) => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
+                  <option value="">Select an experience</option>
+                  <optgroup label="Multi-Day Tours">
+                    <option value="Imperial Cities (8 Days)">Imperial Cities (8 Days)</option>
+                    <option value="Morocco Gems (12 Days)">Morocco Gems (12 Days)</option>
+                    <option value="Exotic Morocco (14 Days)">Exotic Morocco (14 Days)</option>
+                    <option value="Desert Escape (12 Days)">Desert Escape (12 Days)</option>
+                  </optgroup>
+                  <optgroup label="Day Trips & Excursions">
+                    <option value="Hidden gems of Casablanca">Hidden gems of Casablanca</option>
+                    <option value="Food tasting tour of Casablanca">Food tasting tour of Casablanca</option>
+                    <option value="Jewish heritage tour">Jewish heritage tour</option>
+                    <option value="Explore Rabat - Day trip">Explore Rabat - Day trip</option>
+                    <option value="Explore Marrakech - Day trip">Explore Marrakech - Day trip</option>
+                    <option value="Day Trip to Tangier via Fast Train">Day Trip to Tangier via Fast Train</option>
+                  </optgroup>
+                  <optgroup label="Custom Services">
+                    <option value="Private Travel Consulting">Private Travel Consulting</option>
+                    <option value="Custom Tour">Custom Tour</option>
+                  </optgroup>
                 </select>
               </div>
 

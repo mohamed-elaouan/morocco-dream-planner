@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
-import logo from "@/assets/logo-rad.png";
+import logo from "@/assets/RAD_BRAND_LOGO.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -34,9 +34,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="RAD Morocco" className="h-12 w-auto" />
-          <span className="font-heading text-lg font-bold text-primary hidden sm:block">
+        <a href="#home" className="flex items-center gap-3 group">
+          <img 
+            src={logo} 
+            alt="RAD Morocco" 
+            className="h-10 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105" 
+          />
+          <span className="font-heading text-lg md:text-xl font-bold text-primary hidden sm:block tracking-tight group-hover:text-accent transition-colors">
             RAD Morocco
           </span>
         </a>
