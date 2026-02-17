@@ -1,27 +1,44 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Tours", href: "#tours" },
-  { label: "Day Trips", href: "#daytrips" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Reservation", href: "#reservation" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Tours", href: "/#tours" },
+  { label: "Day Trips", href: "/#daytrips" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Travel Consulting", href: "/travel-consulting" },
+  { label: "Contact", href: "/travel-consulting#contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If we're on the same page and the link is an anchor
+    if (href.startsWith("/#")) {
+      const hash = href.substring(1); // remove leading /
+      if (location.pathname === "/") {
+        // Same page: scroll to the element
+        e.preventDefault();
+        const element = document.querySelector(hash);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }
+      // different page: let it navigate naturally
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <motion.nav
@@ -34,7 +51,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <a href="#home" className="flex items-center gap-3 group">
+        <a href="/" className="flex items-center gap-3 group">
           <img 
             src={logo} 
             alt="RAD Morocco" 
@@ -46,12 +63,13 @@ const Navbar = () => {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="font-body text-sm font-medium text-foreground/80 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -90,7 +108,7 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="font-body text-base font-medium text-foreground/80 hover:text-accent transition-colors py-2"
                 >
                   {link.label}

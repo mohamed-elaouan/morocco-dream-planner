@@ -32,33 +32,33 @@ const ReservationSection = () => {
     const data = Object.fromEntries(formData.entries());
 
     // mailto fallback
-    const subject = encodeURIComponent(`Tour Reservation: ${data.tour}`);
+    const subject = encodeURIComponent(`Travel Consulting Request: ${data.tour}`);
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nTour: ${data.tour}\nDate: ${data.date}\nGuests: ${data.guests}\nMessage: ${data.message}`
     );
     window.location.href = `mailto:info@radmorocco.com?subject=${subject}&body=${body}`;
 
     toast({
-      title: "Reservation Request Sent!",
+      title: "Request Sent!",
       description: "We'll get back to you within 24 hours. Thank you!",
     });
     setIsSubmitting(false);
   };
 
   return (
-    <section id="reservation" className="py-24 bg-gradient-section">
+    <section id="travel-consulting-form" className="py-20 md:py-24 bg-gradient-section">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Plan Your Trip</p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Book Your Adventure
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Fill out the form below and our team will create a personalized itinerary just for you.
           </p>
         </motion.div>
@@ -69,8 +69,8 @@ const ReservationSection = () => {
           transition={{ delay: 0.2 }}
           className="max-w-3xl mx-auto"
         >
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 md:p-12 space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-6 sm:p-8 md:p-12 space-y-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Name */}
               <div className="space-y-2">
                 <label className="flex items-center gap-2 font-body text-sm font-medium text-foreground">
@@ -196,7 +196,7 @@ const ReservationSection = () => {
               className="w-full flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 font-body font-semibold text-accent-foreground transition-all hover:shadow-glow hover:scale-[1.02] disabled:opacity-50"
             >
               <Send className="h-4 w-4" />
-              {isSubmitting ? "Sending..." : "Send Reservation Request"}
+              {isSubmitting ? "Sending..." : "Send Request"}
             </button>
 
             <p className="text-center text-xs text-muted-foreground font-body">

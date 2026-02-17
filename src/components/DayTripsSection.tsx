@@ -68,64 +68,65 @@ const DayTripsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="daytrips" className="py-24 bg-gradient-section">
+    <section id="daytrips" className="py-20 md:py-24 bg-gradient-section">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Popular Journeys</p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             City Tours & Day Trips
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Our most requested journeys, carefully designed to balance culture, scenery, and authenticity.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {trips.map((trip, i) => (
             <motion.div
               key={trip.city}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15 }}
-              className="group relative bg-card rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-card rounded-2xl sm:rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
               {/* Image with overlay */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-52 sm:h-56 md:h-64 overflow-hidden">
                 <img
                   src={trip.image}
                   alt={trip.city}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${trip.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 
                 {/* Duration badge */}
-                <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                  <Clock className="h-3.5 w-3.5 text-accent" />
-                  <span className="text-xs font-semibold text-foreground">{trip.duration}</span>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-1.5 sm:gap-2 bg-white/90 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg">
+                  <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-accent" />
+                  <span className="text-[10px] sm:text-xs font-semibold text-foreground">{trip.duration}</span>
                 </div>
                 
                 {/* City name */}
-                <h3 className="absolute bottom-4 left-5 right-5 font-heading text-2xl md:text-xl lg:text-2xl font-bold text-white leading-tight drop-shadow-lg">
+                <h3 className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 font-heading text-lg sm:text-xl md:text-2xl font-bold text-white leading-tight drop-shadow-lg">
                   {trip.city}
                 </h3>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5 line-clamp-3">
+              <div className="p-4 sm:p-5 md:p-6">
+                <p className="font-body text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-5 line-clamp-3">
                   {trip.description}
                 </p>
                 
                 {/* Highlights */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                   {trip.highlights.slice(0, 4).map((h) => (
-                    <span key={h} className="text-xs font-body font-medium bg-accent/10 text-accent px-3 py-1.5 rounded-full border border-accent/20">
+                    <span key={h} className="text-[10px] sm:text-xs font-body font-medium bg-accent/10 text-accent px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-accent/20">
                       {h}
                     </span>
                   ))}
@@ -133,11 +134,11 @@ const DayTripsSection = () => {
                 
                 {/* CTA */}
                 <a
-                  href="#reservation"
-                  className="group/btn inline-flex items-center gap-2 text-sm font-bold text-accent hover:gap-3 transition-all"
+                  href="/travel-consulting"
+                  className="group/btn inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-accent hover:gap-3 transition-all"
                 >
                   Book This Trip 
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover/btn:translate-x-1" />
                 </a>
               </div>
             </motion.div>

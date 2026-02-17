@@ -42,25 +42,25 @@ const ToursSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="tours" className="py-24 bg-background">
+    <section id="tours" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Journeys Around Morocco</p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Popular Tours
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Let us know what you're looking for, and we'll put it together for you.
             Custom-designed itineraries tailored to your preferences.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
           {tours.map((tour, i) => (
             <motion.div
               key={tour.title}
@@ -69,33 +69,34 @@ const ToursSection = () => {
               transition={{ delay: i * 0.15 }}
               className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 cursor-pointer"
             >
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-56 sm:h-64 md:h-72 overflow-hidden">
                 <img
                   src={tour.image}
                   alt={tour.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-heading text-2xl font-bold text-primary-foreground mb-2">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary-foreground mb-2">
                   {tour.title}
                 </h3>
-                <div className="flex items-center gap-4 mb-3">
-                  <span className="flex items-center gap-1 text-sm text-primary-foreground/80">
-                    <Clock className="h-4 w-4" />
+                <div className="flex items-center gap-4 mb-2 sm:mb-3">
+                  <span className="flex items-center gap-1 text-xs sm:text-sm text-primary-foreground/80">
+                    <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     {tour.duration}
                   </span>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-primary-foreground/70 mb-4">
-                  <MapPin className="h-4 w-4 shrink-0" />
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-primary-foreground/70 mb-3 sm:mb-4">
+                  <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                   <span className="line-clamp-1">{tour.route}</span>
                 </div>
                 <a
-                  href="#reservation"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all group-hover:gap-3"
+                  href="/travel-consulting"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-accent transition-all group-hover:gap-3"
                 >
-                  Start Planning <ArrowRight className="h-4 w-4" />
+                  Start Planning <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </a>
               </div>
             </motion.div>

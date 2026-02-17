@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -25,13 +25,20 @@ const Footer = () => {
           <div>
             <h3 className="font-heading text-lg font-bold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              {["Home", "About", "Tours", "Day Trips", "Gallery", "Reservation"].map((link) => (
+              {[
+                { label: "Home", href: "/#home" },
+                { label: "About", href: "/#about" },
+                { label: "Tours", href: "/#tours" },
+                { label: "Day Trips", href: "/#daytrips" },
+                { label: "Gallery", href: "/#gallery" },
+                { label: "Travel Consulting", href: "/travel-consulting" },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(" ", "")}`}
+                  key={link.label}
+                  href={link.href}
                   className="block font-body text-sm text-primary-foreground/70 hover:text-accent transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>

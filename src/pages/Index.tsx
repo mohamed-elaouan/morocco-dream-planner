@@ -4,11 +4,9 @@ import AboutSection from "@/components/AboutSection";
 import ToursSection from "@/components/ToursSection";
 import DayTripsSection from "@/components/DayTripsSection";
 import GallerySection from "@/components/GallerySection";
-import ConsultingSection from "@/components/ConsultingSection";
-import ReservationSection from "@/components/ReservationSection";
+import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -19,8 +17,6 @@ const Index = () => {
       <ToursSection />
       <DayTripsSection />
       <GallerySection />
-      <ConsultingSection />
-      <ReservationSection />
       <Footer />
       <AIAssistant />
       <WhatsAppButton />

@@ -105,10 +105,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+  }
+
+  /* Improve image rendering */
+  img {
+    image-rendering: auto;
   }
 }
 
@@ -139,9 +146,41 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+
+  /* Hide scrollbar for category tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Exception for inline elements and small UI parts */
+  .inline-touch-override,
+  span > a,
+  p > a {
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+/* TV / Ultra-wide support */
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1920px;
+  }
 }
