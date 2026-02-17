@@ -138,14 +138,14 @@ const HeroSection = () => {
           </a>
         </motion.div>
 
-        {/* Slide dots - hidden on very small screens, show subset */}
-        <div className="flex justify-center gap-2 sm:gap-3 mt-8 sm:mt-12">
+        {/* Slide dots */}
+        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-8 sm:mt-12">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
-                i === current ? "bg-accent w-8 sm:w-10" : "bg-white/30 w-1.5 sm:w-2 hover:bg-white/50"
+              className={`!min-h-0 !min-w-0 h-2 sm:h-2.5 rounded-full transition-all duration-500 ${
+                i === current ? "bg-accent w-6 sm:w-8" : "bg-white/30 w-2 sm:w-2.5 hover:bg-white/50"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
