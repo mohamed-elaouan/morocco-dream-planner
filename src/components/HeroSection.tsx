@@ -2,38 +2,25 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-import heroMorocco from "@/assets/hero-morocco.jpg";
-import heroFes from "@/assets/hero-fes.jpg";
-import heroTangier from "@/assets/hero-tangier.jpg";
-import heroChefchaouen from "@/assets/hero-chefchaouen.jpg";
-import heroOuarzazate from "@/assets/hero-ouarzazate.jpg";
-import heroEssaouira from "@/assets/hero-essaouira.jpg";
-import heroMerzouga from "@/assets/hero-merzouga.jpg";
-import heroMeknes from "@/assets/hero-meknes.jpg";
-import heroAgadir from "@/assets/hero-agadir.jpg";
-import heroDades from "@/assets/hero-dades.jpg";
-import heroMarrakech from "@/assets/marrakech-square.jpg";
-
-// High Res Imports
-import heroHighRes1 from "@/assets/hero_imgs/DSC_3035.jpg";
-import heroHighRes2 from "@/assets/hero_imgs/DSC_7785.jpg";
-import heroHighRes3 from "@/assets/hero_imgs/RAD_9256.JPG";
-import heroAitBenHaddou from "@/assets/hero_imgs/ait ben haddou.jpg";
-import heroDadesHigh from "@/assets/hero_imgs/dades.jpg";
+// Hero section images only from "hero section" folder
+import heroDesert from "@/assets/hero section/DSC_3035.jpg";
+import heroMorocco from "@/assets/hero section/Morocco_KAI_VM_2025_0077.jpg";
+import heroSchool from "@/assets/hero section/Quranic School.jpg";
+import heroRad from "@/assets/hero section/RAD_7725.JPG";
+import heroRuins from "@/assets/hero section/Roman musaic.jpg";
+import heroFox from "@/assets/hero section/funnic fox.JPG";
+import heroSnake from "@/assets/hero section/snake charmer.JPG";
+import heroTanneries from "@/assets/hero section/tanneries in fes.jpg";
 
 const slides = [
-  { src: heroHighRes1, city: "Sahara Desert", subtitle: "Endless golden dunes" },
-  { src: heroHighRes3, city: "Marrakech", subtitle: "The Red City" },
-  { src: heroFes, city: "Fes", subtitle: "Ancient medina & culture" },
-  { src: heroChefchaouen, city: "Chefchaouen", subtitle: "The Blue Pearl" },
-  { src: heroMerzouga, city: "Merzouga", subtitle: "Gateway to the Sahara" },
-  { src: heroTangier, city: "Tangier", subtitle: "Where continents meet" },
-  { src: heroAitBenHaddou, city: "Ait Ben Haddou", subtitle: "Hollywood of Africa" },
-  { src: heroEssaouira, city: "Essaouira", subtitle: "Wind city of the Atlantic" },
-  { src: heroMeknes, city: "Meknes", subtitle: "Imperial grandeur" },
-  { src: heroAgadir, city: "Agadir", subtitle: "Sun & surf paradise" },
-  { src: heroDadesHigh, city: "Dades Valley", subtitle: "Dramatic gorges & oases" },
-  { src: heroHighRes2, city: "Morocco", subtitle: "A timeless journey" },
+  { src: heroDesert, city: "Sahara Desert", subtitle: "Endless golden dunes" },
+  { src: heroFox, city: "Atlas Mountains", subtitle: "Wildlife encounters" },
+  { src: heroSnake, city: "Marrakech", subtitle: "The enchanted square" },
+  { src: heroRuins, city: "Volubilis", subtitle: "Roman mosaics & history" },
+  { src: heroMorocco, city: "Morocco", subtitle: "A land of wonder" },
+  { src: heroTanneries, city: "Fes Tanneries", subtitle: "Living craft tradition" },
+  { src: heroSchool, city: "Quranic School", subtitle: "Sacred heritage" },
+  { src: heroRad, city: "Morocco", subtitle: "Discover the magic" },
 ];
 
 const HeroSection = () => {
@@ -134,7 +121,7 @@ const HeroSection = () => {
             href="/travel-consulting"
             className="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 sm:px-10 py-3.5 sm:py-4 font-body font-bold text-white transition-all hover:bg-white/20 hover:border-white/50 text-sm sm:text-base"
           >
-            Plan Your Journey
+            Personalize Your Journey
           </a>
         </motion.div>
 

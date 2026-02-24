@@ -29,7 +29,7 @@ const Footer = () => {
                 { label: "Home", href: "/#home" },
                 { label: "About", href: "/#about" },
                 { label: "Tours", href: "/#tours" },
-                { label: "Day Trips", href: "/#daytrips" },
+                { label: "Expériences", href: "/#daytrips" },
                 { label: "Gallery", href: "/#gallery" },
                 { label: "Travel Consulting", href: "/travel-consulting" },
               ].map((link) => (

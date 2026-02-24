@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, Calendar } from "lucide-react";
-import gallerySouk from "@/assets/gallery-souk.jpg";
+const gallerySouk = "https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?w=800&q=80";
 
 const benefits = [
   "Private 30-minute strategy session",

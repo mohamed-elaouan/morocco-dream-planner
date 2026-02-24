@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
-import toursImperial from "@/assets/tours-imperial.jpg";
-import toursDesert from "@/assets/tours-desert.jpg";
-import galleryChefchaouen from "@/assets/gallery-chefchaouen.jpg";
-import galleryDesertCamp from "@/assets/gallery-desert-camp.jpg";
+const toursImperial = "https://images.unsplash.com/photo-1548017067-6db29287dd2e?w=800&q=80";
+const toursDesert = "https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=800&q=80";
+const galleryChefchaouen = "https://images.unsplash.com/photo-1553244878-5765e7eb090c?w=800&q=80";
+const galleryDesertCamp = "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=800&q=80";
 
 const tours = [
   {
