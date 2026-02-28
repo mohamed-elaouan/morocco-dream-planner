@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 // Hero section images only from "hero section" folder
-import heroDesert from "@/assets/hero section/DSC_3035.jpg";
-import heroMorocco from "@/assets/hero section/Morocco_KAI_VM_2025_0077.jpg";
-import heroSchool from "@/assets/hero section/Quranic School.jpg";
-import heroRad from "@/assets/hero section/RAD_7725.JPG";
-import heroRuins from "@/assets/hero section/Roman musaic.jpg";
-import heroFox from "@/assets/hero section/funnic fox.JPG";
-import heroSnake from "@/assets/hero section/snake charmer.JPG";
-import heroTanneries from "@/assets/hero section/tanneries in fes.jpg";
+import heroDesert from "@/assets/hero section/DSC_3035.webp";
+import heroMorocco from "@/assets/hero section/Morocco_KAI_VM_2025_0077.webp";
+import heroSchool from "@/assets/hero section/Quranic School.webp";
+import heroRad from "@/assets/hero section/RAD_7725.webp";
+import heroRuins from "@/assets/hero section/Roman musaic.webp";
+import heroFox from "@/assets/hero section/funnic fox.webp";
+import heroSnake from "@/assets/hero section/snake charmer.webp";
+import heroTanneries from "@/assets/hero section/tanneries in fes.webp";
 
 const slides = [
   { src: heroDesert, city: "Sahara Desert", subtitle: "Endless golden dunes" },

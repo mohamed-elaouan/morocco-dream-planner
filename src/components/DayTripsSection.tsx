@@ -1,11 +1,11 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Clock, ChevronDown, Users, Sparkles, MapPin, Car, Footprints } from "lucide-react";
-import casablanca from "@/assets/Casablanca/photo_5834557504061817686_y.jpg";
-import casa02 from "@/assets/Casablanca/photo_5841450531434905176_y.jpg";
-import casa03 from "@/assets/Casablanca/photo_5843702331248589694_y.jpg";
-import casa04 from "@/assets/Casablanca/photo_5834557504061817677_y.jpg";
-import foodCover from "@/assets/Food_tasting Cover.jpg";
+import casablanca from "@/assets/Casablanca/photo_5834557504061817686_y.webp";
+import casa02 from "@/assets/Casablanca/photo_5841450531434905176_y.webp";
+import casa03 from "@/assets/Casablanca/photo_5843702331248589694_y.webp";
+import casa04 from "@/assets/Casablanca/photo_5834557504061817677_y.webp";
+import foodCover from "@/assets/Food_tasting Cover.webp";
 
 interface Experience {
   id: number;

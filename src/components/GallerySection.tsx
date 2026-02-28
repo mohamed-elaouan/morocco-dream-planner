@@ -3,92 +3,92 @@ import { useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Happy Travelers
-import happy01 from "@/assets/Happy_Travel/photo_5825444253474602549_y.jpg";
-import happy02 from "@/assets/Happy_Travel/photo_5825444253474602550_y.jpg";
-import happy03 from "@/assets/Happy_Travel/photo_5825444253474602552_y.jpg";
-import happy04 from "@/assets/Happy_Travel/photo_5848272747682184103_y.jpg";
-import happy05 from "@/assets/Happy_Travel/photo_5825444253474602553_y.jpg";
-import happy06 from "@/assets/Happy_Travel/photo_5825444253474602554_y.jpg";
-import happy07 from "@/assets/Happy_Travel/photo_5825444253474602555_y.jpg";
-import happy08 from "@/assets/Happy_Travel/photo_5825444253474602556_y.jpg";
-import happy09 from "@/assets/Happy_Travel/photo_5825444253474602557_y.jpg";
-import happy10 from "@/assets/Happy_Travel/photo_5848272747682184105_y.jpg";
-import happy11 from "@/assets/Happy_Travel/photo_5848272747682184118_y.jpg";
-import happy12 from "@/assets/Happy_Travel/photo_5848272747682184120_y.jpg";
-import happy13 from "@/assets/Happy_Travel/photo_5848272747682184121_y.jpg";
-import happy14 from "@/assets/Happy_Travel/photo_5848272747682184123_y.jpg";
-import happy15 from "@/assets/Happy_Travel/photo_5848272747682184124_y.jpg";
-import happy16 from "@/assets/Happy_Travel/photo_5848272747682184125_y.jpg";
-import happy17 from "@/assets/Happy_Travel/photo_5848272747682184126_y.jpg";
-import happyTicj from "@/assets/Happy_Travel/DSC_1218ticj.JPG";
-import happyGroup from "@/assets/Happy_Travel/happ.jpg";
+import happy01 from "@/assets/Happy_Travel/photo_5825444253474602549_y.webp";
+import happy02 from "@/assets/Happy_Travel/photo_5825444253474602550_y.webp";
+import happy03 from "@/assets/Happy_Travel/photo_5825444253474602552_y.webp";
+import happy04 from "@/assets/Happy_Travel/photo_5848272747682184103_y.webp";
+import happy05 from "@/assets/Happy_Travel/photo_5825444253474602553_y.webp";
+import happy06 from "@/assets/Happy_Travel/photo_5825444253474602554_y.webp";
+import happy07 from "@/assets/Happy_Travel/photo_5825444253474602555_y.webp";
+import happy08 from "@/assets/Happy_Travel/photo_5825444253474602556_y.webp";
+import happy09 from "@/assets/Happy_Travel/photo_5825444253474602557_y.webp";
+import happy10 from "@/assets/Happy_Travel/photo_5848272747682184105_y.webp";
+import happy11 from "@/assets/Happy_Travel/photo_5848272747682184118_y.webp";
+import happy12 from "@/assets/Happy_Travel/photo_5848272747682184120_y.webp";
+import happy13 from "@/assets/Happy_Travel/photo_5848272747682184121_y.webp";
+import happy14 from "@/assets/Happy_Travel/photo_5848272747682184123_y.webp";
+import happy15 from "@/assets/Happy_Travel/photo_5848272747682184124_y.webp";
+import happy16 from "@/assets/Happy_Travel/photo_5848272747682184125_y.webp";
+import happy17 from "@/assets/Happy_Travel/photo_5848272747682184126_y.webp";
+import happyTicj from "@/assets/Happy_Travel/DSC_1218ticj.webp";
+import happyGroup from "@/assets/Happy_Travel/happ.webp";
 
 // Casablanca
-import casa01 from "@/assets/Casablanca/photo_5834557504061817686_y.jpg";
-import casa02 from "@/assets/Casablanca/photo_5841450531434905176_y.jpg";
-import casa03 from "@/assets/Casablanca/photo_5843702331248589694_y.jpg";
-import casa04 from "@/assets/Casablanca/photo_5834557504061817677_y.jpg";
-import casa05 from "@/assets/Casablanca/photo_5834557504061817678_y.jpg";
-import casa06 from "@/assets/Casablanca/photo_5841450531434905177_y.jpg";
-import casa07 from "@/assets/Casablanca/photo_5841450531434905178_y.jpg";
-import casa08 from "@/assets/Casablanca/Hidden_gems.jpg";
-import casa09 from "@/assets/Casablanca/photo_5848272747682184099_y.jpg";
-import casa10 from "@/assets/Casablanca/photo_5848272747682184116_y.jpg";
-import casa11 from "@/assets/Casablanca/photo_5827743396716547463_y.jpg";
-import casa12 from "@/assets/Casablanca/photo_5827743396716547465_y.jpg";
+import casa01 from "@/assets/Casablanca/photo_5834557504061817686_y.webp";
+import casa02 from "@/assets/Casablanca/photo_5841450531434905176_y.webp";
+import casa03 from "@/assets/Casablanca/photo_5843702331248589694_y.webp";
+import casa04 from "@/assets/Casablanca/photo_5834557504061817677_y.webp";
+import casa05 from "@/assets/Casablanca/photo_5834557504061817678_y.webp";
+import casa06 from "@/assets/Casablanca/photo_5841450531434905177_y.webp";
+import casa07 from "@/assets/Casablanca/photo_5841450531434905178_y.webp";
+import casa08 from "@/assets/Casablanca/Hidden_gems.webp";
+import casa09 from "@/assets/Casablanca/photo_5848272747682184099_y.webp";
+import casa10 from "@/assets/Casablanca/photo_5848272747682184116_y.webp";
+import casa11 from "@/assets/Casablanca/photo_5827743396716547463_y.webp";
+import casa12 from "@/assets/Casablanca/photo_5827743396716547465_y.webp";
 
 // Fes
-import fes01 from "@/assets/Fes/photo_5834557504061817699_y.jpg";
-import fes02 from "@/assets/Fes/photo_5834557504061817700_y.jpg";
-import fes03 from "@/assets/Fes/photo_5834557504061817703_y.jpg";
-import fes04 from "@/assets/Fes/photo_5834557504061817701_y.jpg";
-import fes05 from "@/assets/Fes/photo_5834557504061817702_y.jpg";
+import fes01 from "@/assets/Fes/photo_5834557504061817699_y.webp";
+import fes02 from "@/assets/Fes/photo_5834557504061817700_y.webp";
+import fes03 from "@/assets/Fes/photo_5834557504061817703_y.webp";
+import fes04 from "@/assets/Fes/photo_5834557504061817701_y.webp";
+import fes05 from "@/assets/Fes/photo_5834557504061817702_y.webp";
 
 // Rabat
-import rabat01 from "@/assets/Rabat/photo_5834557504061817673_y.jpg";
-import rabat02 from "@/assets/Rabat/photo_5834557504061817676_y.jpg";
-import rabat03 from "@/assets/Rabat/photo_5825444253474602553_y.jpg";
-import rabat04 from "@/assets/Rabat/photo_5825444253474602556_y.jpg";
+import rabat01 from "@/assets/Rabat/photo_5834557504061817673_y.webp";
+import rabat02 from "@/assets/Rabat/photo_5834557504061817676_y.webp";
+import rabat03 from "@/assets/Rabat/photo_5825444253474602553_y.webp";
+import rabat04 from "@/assets/Rabat/photo_5825444253474602556_y.webp";
 
 // Sahara
-import sahara01 from "@/assets/Sahara/photo_5832194670753594710_y.jpg";
-import sahara02 from "@/assets/Sahara/photo_5834557504061817689_y.jpg";
-import sahara03 from "@/assets/Sahara/photo_5834557504061817695_y.jpg";
-import sahara04 from "@/assets/Sahara/photo_5834557504061817696_y.jpg";
-import saharaRad from "@/assets/Sahara/RAD_9256.JPG";
+import sahara01 from "@/assets/Sahara/photo_5832194670753594710_y.webp";
+import sahara02 from "@/assets/Sahara/photo_5834557504061817689_y.webp";
+import sahara03 from "@/assets/Sahara/photo_5834557504061817695_y.webp";
+import sahara04 from "@/assets/Sahara/photo_5834557504061817696_y.webp";
+import saharaRad from "@/assets/Sahara/RAD_9256.webp";
 
 // Ait Ben Haddou
-import aitBenHaddou01 from "@/assets/ait ben haddou/ait ben haddou.jpg";
-import aitBenHaddou02 from "@/assets/ait ben haddou/aiy.JPG";
+import aitBenHaddou01 from "@/assets/ait ben haddou/ait ben haddou.webp";
+import aitBenHaddou02 from "@/assets/ait ben haddou/aiy.webp";
 
 // Chefchaouen
-import chaouen01 from "@/assets/chaouen/DSC_0449.jpg";
-import chaouen02 from "@/assets/chaouen/DSC_3811.JPG";
-import chaouen03 from "@/assets/chaouen/DSC_4113.jpg";
+import chaouen01 from "@/assets/chaouen/DSC_0449.webp";
+import chaouen02 from "@/assets/chaouen/DSC_3811.webp";
+import chaouen03 from "@/assets/chaouen/DSC_4113.webp";
 
 // Essaouira
-import essaouira01 from "@/assets/essaouira/DSC_9227.JPG";
-import essaouira02 from "@/assets/essaouira/DSC_9265.JPG";
+import essaouira01 from "@/assets/essaouira/DSC_9227.webp";
+import essaouira02 from "@/assets/essaouira/DSC_9265.webp";
 
 // Merzouga
-import merzouga01 from "@/assets/Merzouga/IMG_20201015_144043_920.jpg";
-import merzouga02 from "@/assets/Merzouga/RAD_9265_00001.jpg";
-import merzouga03 from "@/assets/Merzouga/RAD_9443_00001.jpg";
-import merzouga04 from "@/assets/Merzouga/RAD_9474_00001.jpg";
+import merzouga01 from "@/assets/Merzouga/IMG_20201015_144043_920.webp";
+import merzouga02 from "@/assets/Merzouga/RAD_9265_00001.webp";
+import merzouga03 from "@/assets/Merzouga/RAD_9443_00001.webp";
+import merzouga04 from "@/assets/Merzouga/RAD_9474_00001.webp";
 
 // Volubilis
-import volubilis01 from "@/assets/volubilus-Walili/DSC_4199.JPG";
-import volubilis02 from "@/assets/volubilus-Walili/DSC_8298.JPG";
-import volubilis03 from "@/assets/volubilus-Walili/DSC_4251_00001.jpg";
-import volubilis04 from "@/assets/volubilus-Walili/Morocco_KAI_VM_2025_0072.jpg";
+import volubilis01 from "@/assets/volubilus-Walili/DSC_4199.webp";
+import volubilis02 from "@/assets/volubilus-Walili/DSC_8298.webp";
+import volubilis03 from "@/assets/volubilus-Walili/DSC_4251_00001.webp";
+import volubilis04 from "@/assets/volubilus-Walili/Morocco_KAI_VM_2025_0072.webp";
 
 // Others
-import otherMarrakech from "@/assets/others/DSC_3296.JPG";
-import otherDades from "@/assets/others/dades.JPG";
-import otherCoast from "@/assets/others/DSC_0422.jpg";
-import otherMedina from "@/assets/others/DSC_0513.jpg";
-import otherLandscape from "@/assets/others/DSC_5205.JPG";
-import otherDesert from "@/assets/others/DSC_7215.JPG";
+import otherMarrakech from "@/assets/others/DSC_3296.webp";
+import otherDades from "@/assets/others/dades.webp";
+import otherCoast from "@/assets/others/DSC_0422.webp";
+import otherMedina from "@/assets/others/DSC_0513.webp";
+import otherLandscape from "@/assets/others/DSC_5205.webp";
+import otherDesert from "@/assets/others/DSC_7215.webp";
 
 type Category =
   | "all"

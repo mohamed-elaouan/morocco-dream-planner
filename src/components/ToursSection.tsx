@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
-const toursImperial = "https://images.unsplash.com/photo-1548017067-6db29287dd2e?w=800&q=80";
-const toursDesert = "https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=800&q=80";
-const galleryChefchaouen = "https://images.unsplash.com/photo-1553244878-5765e7eb090c?w=800&q=80";
-const galleryDesertCamp = "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=800&q=80";
+import toursImperial from "@/assets/Imperial_Cities_Cover.webp";
+import galleryChefchaouen from "@/assets/chaouen/DSC_0449.webp";
+import exoticMorocco from "@/assets/Exotic_Morocco_Cover.webp";
+import toursDesert from "@/assets/Sahara/photo_5834557504061817696_y.webp";
 
 const tours = [
   {
@@ -15,9 +15,10 @@ const tours = [
     accent: "hsl(38 70% 55%)",
   },
   {
-    title: "Morocco Gems",
+    title: "Northern Cultural & Imperial Route",
     duration: "12 Days / 11 Nights",
     route: "Casablanca → Rabat → Fes → Midelt → Merzouga → Tinghir → Ouarzazate → Marrakech",
+    description : "A curated journey through Morocco’s northern cultural heart — from Casablanca’s modern identity and Rabat’s refined capital atmosphere to the imperial depth of Fes and Meknes, the Roman legacy of Volubilis, and the Mediterranean crossroads of Chefchaouen, Tetouan, and Tangier.Designed for travelers who seek history, architecture, and cultural perspective.",
     image: galleryChefchaouen,
     accent: "hsl(200 70% 50%)",
   },
@@ -25,7 +26,7 @@ const tours = [
     title: "Exotic Morocco",
     duration: "14 Days / 13 Nights",
     route: "Casablanca → Chefchaouen → Fes → Merzouga → Ouarzazate → Marrakech → Essaouira",
-    image: galleryDesertCamp,
+    image: exoticMorocco,
     accent: "hsl(15 60% 50%)",
   },
   {

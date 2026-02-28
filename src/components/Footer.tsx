@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="RAD Morocco" 
-                className="h-12 md:h-16 w-auto brightness-0 invert transition-opacity hover:opacity-90" 
+                className="h-12 md:h-16 w-auto transition-opacity hover:opacity-90 drop-shadow-md" 
               />
               <span className="font-heading text-xl md:text-2xl font-bold">RAD Morocco</span>
             </div>
