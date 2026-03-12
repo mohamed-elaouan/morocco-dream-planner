@@ -1,6 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Clock, MapPin, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Clock, ArrowRight, Compass } from "lucide-react";
 import toursImperial from "@/assets/Imperial_Cities_Cover.webp";
 import galleryChefchaouen from "@/assets/chaouen/DSC_0449.webp";
 import exoticMorocco from "@/assets/Exotic_Morocco_Cover.webp";
@@ -8,97 +7,95 @@ import toursDesert from "@/assets/Sahara/photo_5834557504061817696_y.webp";
 
 const tours = [
   {
-    title: "Imperial Cities",
-    duration: "8 Days / 7 Nights",
-    route: "Casablanca → Rabat → Volubilis → Meknes → Fes → Beni Mellal → Marrakech",
-    image: toursImperial,
-    accent: "hsl(38 70% 55%)",
-  },
-  {
-    title: "Northern Cultural & Imperial Route",
+    title: "Morocco Highlights",
     duration: "12 Days / 11 Nights",
-    route: "Casablanca → Rabat → Fes → Midelt → Merzouga → Tinghir → Ouarzazate → Marrakech",
-    description : "A curated journey through Morocco’s northern cultural heart — from Casablanca’s modern identity and Rabat’s refined capital atmosphere to the imperial depth of Fes and Meknes, the Roman legacy of Volubilis, and the Mediterranean crossroads of Chefchaouen, Tetouan, and Tangier.Designed for travelers who seek history, architecture, and cultural perspective.",
-    image: galleryChefchaouen,
-    accent: "hsl(200 70% 50%)",
-  },
-  {
-    title: "Exotic Morocco",
-    duration: "14 Days / 13 Nights",
-    route: "Casablanca → Chefchaouen → Fes → Merzouga → Ouarzazate → Marrakech → Essaouira",
+    description: "Discover the diverse landscapes and rich cultural heritage of Morocco on this unforgettable journey. Begin in the vibrant city of Casablanca and the elegant capital Rabat before exploring the fascinating medieval medina of Fez. Travel south through the Middle Atlas toward Erfoud and the spectacular dunes of Merzouga for an unforgettable Sahara experience. Continue through the dramatic landscapes of southern Morocco to Ouarzazate, known as the gateway to the desert, before ending your adventure in the vibrant imperial city of Marrakesh. This 12-day tour offers a perfect blend of imperial cities, desert landscapes, and authentic Moroccan culture.",
     image: exoticMorocco,
-    accent: "hsl(15 60% 50%)",
   },
   {
-    title: "Desert Escape",
-    duration: "12 Days / 11 Nights",
-    route: "Marrakech → Ouarzazate → Zagora → Merzouga → Tinghir → Dades → Marrakech",
+    title: "Northern Morocco Discovery",
+    duration: "8 Days / 7 Nights",
+    description: "Experience the cultural and scenic beauty of northern Morocco on this captivating journey. Begin in the vibrant city of Casablanca and the elegant capital Rabat before exploring the historic medinas of Fez and the imperial city of Meknes. Continue to the famous blue town of Chefchaouen nestled in the Rif Mountains, then discover the Andalusian charm of Tetouan. Your journey ends in the cosmopolitan port city of Tangier, where Africa meets Europe. This tour offers a perfect blend of history, culture, and stunning landscapes.",
+    image: galleryChefchaouen,
+  },
+  {
+    title: "Imperial Cities of Morocco",
+    duration: "8 Days / 7 Nights",
+    description: "Explore Morocco’s rich history and cultural heritage on this fascinating journey through its legendary imperial cities. From the modern energy of Casablanca to the historic charm of Rabat, the grandeur of Meknes, the ancient medina of Fez, and the vibrant souks of Marrakesh, this 8-day journey offers an unforgettable introduction to Morocco’s imperial legacy, colorful traditions, and timeless architecture. Discover lively markets, historic monuments, and authentic Moroccan culture along the way.",
+    image: toursImperial,
+  },
+  {
+    title: "Desert Escape Tour",
+    duration: "6 Days / 5 Nights",
+    description: "Embark on an unforgettable journey from Marrakesh into the heart of southern Morocco. Cross the spectacular Tizi n'Tichka Pass and discover the desert gateway of Ouarzazate before continuing to the palm groves of Zagora. Travel deeper into the Sahara to experience the majestic dunes of Merzouga, where camel rides and magical desert sunsets await. This journey offers dramatic landscapes, traditional Berber culture, and an authentic Sahara adventure before returning to Marrakesh.",
     image: toursDesert,
-    accent: "hsl(30 55% 55%)",
   },
 ];
 
 const ToursSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="tours" className="py-20 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="tours" className="py-24 md:py-32 bg-secondary/10">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-12 md:mb-16"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-16 md:mb-24 flex flex-col items-center"
         >
-          <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Journeys Around Morocco</p>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-6 shadow-sm border border-accent/20">
+            <Compass className="w-4 h-4" />
+            Curated Itineraries
+          </span>
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
             Our Popular Tours
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Let us know what you're looking for, and we'll put it together for you.
             Custom-designed itineraries tailored to your preferences.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
           {tours.map((tour, i) => (
             <motion.div
               key={tour.title}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.15 }}
-              className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 cursor-pointer"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+              className="group flex flex-col bg-background rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl border border-border/50 transition-all duration-500"
             >
-              <div className="relative h-56 sm:h-64 md:h-72 overflow-hidden">
+              <div className="relative h-72 sm:h-80 md:h-96 overflow-hidden">
                 <img
                   src={tour.image}
                   alt={tour.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/10" />
+                <div className="absolute bottom-6 right-6 bg-background/95 backdrop-blur-md px-5 py-2.5 rounded-full flex items-center gap-2.5 shadow-md transition-transform duration-500 group-hover:-translate-y-1">
+                  <Clock className="w-4 h-4 text-accent" />
+                  <span className="text-sm font-bold text-foreground">{tour.duration}</span>
+                </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary-foreground mb-2">
+
+              <div className="p-8 sm:p-10 flex flex-col flex-grow">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
                   {tour.title}
                 </h3>
-                <div className="flex items-center gap-4 mb-2 sm:mb-3">
-                  <span className="flex items-center gap-1 text-xs sm:text-sm text-primary-foreground/80">
-                    <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    {tour.duration}
-                  </span>
+                
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                  {tour.description}
+                </p>
+
+                <div className="pt-6 border-t border-border/60 flex items-center justify-between mt-auto">
+                  <a
+                    href="/travel-consulting"
+                    className="inline-flex items-center gap-2 text-base font-semibold text-foreground transition-all group-hover:text-accent group-hover:gap-3"
+                  >
+                    Start Planning <ArrowRight className="h-5 w-5" />
+                  </a>
                 </div>
-                <div className="flex items-center gap-1 text-xs sm:text-sm text-primary-foreground/70 mb-3 sm:mb-4">
-                  <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
-                  <span className="line-clamp-1">{tour.route}</span>
-                </div>
-                <a
-                  href="/travel-consulting"
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-accent transition-all group-hover:gap-3"
-                >
-                  Start Planning <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                </a>
               </div>
             </motion.div>
           ))}
