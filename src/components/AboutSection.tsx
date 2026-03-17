@@ -7,8 +7,7 @@ import aboutImg from "@/assets/About.webp";
 const stats = [
   { icon: Award, label: "Years Experience", value: "18+" },
   { icon: Users, label: "Happy Travelers", value: "5000+" },
-  { icon: MapPin, label: "Destinations", value: "50+" },
-  { icon: Star, label: "Rating", value: "4.9" },
+  { icon: MapPin, label: "Regions", value: "12" },
 ];
 
 const AboutSection = () => {

@@ -111,20 +111,20 @@ type Category =
 const categories: { key: Category; label: string }[] = [
   { key: "all", label: "All" },
   { key: "happy", label: "Happy Travelers" },
-  { key: "family", label: "Family Trips" },
+  // { key: "family", label: "Family Trips" },
   { key: "casablanca", label: "Casablanca" },
   { key: "fes", label: "Fes" },
   { key: "rabat", label: "Rabat" },
   { key: "chefchaouen", label: "Chefchaouen" },
   { key: "essaouira", label: "Essaouira" },
   { key: "sahara", label: "Sahara" },
-  { key: "merzouga", label: "Merzouga" },
-  { key: "aitbenhaddou", label: "Ait Ben Haddou" },
+  // { key: "merzouga", label: "Merzouga" },
+  // { key: "aitbenhaddou", label: "Ait Ben Haddou" },
   { key: "volubilis", label: "Volubilis" },
   { key: "marrakech", label: "Marrakech" },
-  { key: "imperial", label: "Imperial Cities" },
-  { key: "coastal", label: "Coastal Escapes" },
-  { key: "desert", label: "Desert Adventures" },
+  // { key: "imperial", label: "Imperial Cities" },
+  // { key: "coastal", label: "Coastal Escapes" },
+  // { key: "desert", label: "Desert Adventures" },
 ];
 
 const images: { src: string; alt: string; category: Category[]; span: string }[] = [

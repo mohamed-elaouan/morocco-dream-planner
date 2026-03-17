@@ -1,11 +1,11 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Clock, ChevronDown, Users, Sparkles, MapPin, Car, Footprints } from "lucide-react";
-import casablanca from "@/assets/Casablanca/photo_5834557504061817686_y.webp";
-import casa02 from "@/assets/Casablanca/photo_5841450531434905176_y.webp";
-import casa03 from "@/assets/Casablanca/photo_5843702331248589694_y.webp";
-import casa04 from "@/assets/Casablanca/photo_5834557504061817677_y.webp";
-import foodCover from "@/assets/Food_tasting Cover.webp";
+import casablanca from "@/assets/Casablanca/IMG-20220525-WA0022.jpg";
+import casa02 from "@/assets/Casablanca/20220528_162250.jpg";
+import casa03 from "@/assets/Casablanca/davide.jpg";
+import casa04 from "@/assets/Casablanca/20250303_153308.jpg";
+import foodCover from "@/assets/FoodFlavors.jpg";
 
 interface Experience {
   id: number;
@@ -70,7 +70,7 @@ const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: "Moroccan Flavors",
+    title: "Food Tasting",
     subtitle: "A Casablanca Culinary Journey",
     duration: "3 Hours",
     format: "Private Culinary Experience",
@@ -115,7 +115,7 @@ const experiences: Experience[] = [
   },
   {
     id: 5,
-    title: "Tailored Private Experience",
+    title: "Personalised Private Experience",
     subtitle: "Designed Around You",
     duration: "Flexible Duration",
     format: "Fully Private • Custom Itinerary",
@@ -127,6 +127,7 @@ const experiences: Experience[] = [
       "Pre-arrival consultation (email or call)",
       "Customized itinerary based on your interests",
       "Flexible pacing",
+      "day trips to rabat , tanger and marrakech",
       "Vehicle or walking format available",
       "Expert cultural interpretation throughout",
     ],
@@ -284,7 +285,7 @@ const ExperienceCard = ({ exp, index, isInView }: { exp: Experience; index: numb
 
                 {/* CTA */}
                 <a
-                  href="/travel-consulting"
+                  href="/travel-consulting#contact"
                   className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-6 py-3 text-sm font-bold text-accent-foreground transition-all hover:shadow-glow hover:scale-[1.02]"
                 >
                   Book This Experience
@@ -311,19 +312,50 @@ const DayTripsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12 md:mb-16"
         >
-          <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Curated Experiences</p>
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Signature Experiences</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Signature Expériences
+            Our Local Experiences
           </h2>
           <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Each experience is thoughtfully designed to offer depth, authenticity, and personal connection — far beyond a standard tour.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {experiences.map((exp, i) => (
-            <ExperienceCard key={exp.id} exp={exp} index={i} isInView={isInView} />
-          ))}
+        {/* Casablanca Experiences */}
+        <div className="mb-16 md:mb-24">
+          <div className="flex items-center gap-4 mb-8 sm:mb-12">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Casablanca</h3>
+            <div className="h-px flex-grow bg-border/60"></div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {experiences.map((exp, i) => (
+              <ExperienceCard key={exp.id} exp={exp} index={i} isInView={isInView} />
+            ))}
+          </div>
+        </div>
+
+        {/* Marrakech Experiences Placeholder */}
+        <div className="mb-16 md:mb-24">
+          <div className="flex items-center gap-4 mb-8 sm:mb-12">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground opacity-60">Marrakech</h3>
+            <div className="h-px flex-grow bg-border/60"></div>
+          </div>
+          <div className="bg-secondary/5 border-2 border-dashed border-border/50 rounded-3xl p-12 lg:p-20 text-center text-muted-foreground flex flex-col items-center justify-center">
+            <p className="font-body text-lg font-medium">Coming Soon</p>
+            <p className="font-body text-sm mt-2 opacity-70">Curated experiences in Marrakech are currently being designed.</p>
+          </div>
+        </div>
+
+        {/* Fes Experiences Placeholder */}
+        <div>
+          <div className="flex items-center gap-4 mb-8 sm:mb-12">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground opacity-60">Fes</h3>
+            <div className="h-px flex-grow bg-border/60"></div>
+          </div>
+          <div className="bg-secondary/5 border-2 border-dashed border-border/50 rounded-3xl p-12 lg:p-20 text-center text-muted-foreground flex flex-col items-center justify-center">
+            <p className="font-body text-lg font-medium">Coming Soon</p>
+            <p className="font-body text-sm mt-2 opacity-70">Curated experiences in Fes are currently being designed.</p>
+          </div>
         </div>
       </div>
     </section>

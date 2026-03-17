@@ -5,13 +5,14 @@ import { useLocation } from "react-router-dom";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
 
 const navLinks = [
-  { label: "Home", href: "/#home" },
+  // { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
   { label: "Tours", href: "/#tours" },
-  { label: "Expériences", href: "/#daytrips" },
+  { label: "Design  Tours", href: "/#daytrips" },
+  { label: "Local Experiences", href: "/#daytrips" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Travel Consulting", href: "/travel-consulting" },
-  { label: "Contact", href: "/travel-consulting#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {

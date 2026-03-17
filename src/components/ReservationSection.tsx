@@ -344,7 +344,7 @@ const ReservationSection = () => {
 
               <p className="text-center text-sm text-muted-foreground font-body">
                 Prefer to email directly? Reach us at{" "}
-                <a href="mailto:contact@radmorocco.com" className="text-foreground font-semibold hover:text-accent transition-colors underline decoration-border underline-offset-4">
+                <a href="mailto:elredouane@gmail.com" className="text-foreground font-semibold hover:text-accent transition-colors underline decoration-border underline-offset-4">
                   contact@radmorocco.com
                 </a>
               </p>

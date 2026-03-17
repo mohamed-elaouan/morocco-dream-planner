@@ -32,6 +32,7 @@ const Footer = () => {
                 { label: "Expériences", href: "/#daytrips" },
                 { label: "Gallery", href: "/#gallery" },
                 { label: "Travel Consulting", href: "/travel-consulting" },
+                { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <a
                   key={link.label}

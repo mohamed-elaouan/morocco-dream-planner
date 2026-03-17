@@ -17,7 +17,7 @@ const ConsultingSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="consulting" className="py-20 md:py-24 bg-background">
+    <section id="consulting" className="py-20 md:py-24 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -28,10 +28,10 @@ const ConsultingSection = () => {
           {/* Text Content */}
           <div>
             <p className="font-body text-accent text-sm tracking-widest uppercase mb-4">Design Your Journey</p>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
               Private Travel Consulting
             </h2>
-            <p className="font-body text-muted-foreground leading-relaxed mb-6 text-sm md:text-base">
+            <p className="font-body text-white/80 leading-relaxed mb-6 text-sm md:text-base">
               Plan your Morocco experience with the guidance of a certified national tour guide with over 18 years of professional expertise. This private consulting service is designed for discerning travelers who want a perfectly structured itinerary — without booking a tour.
             </p>
             
@@ -39,19 +39,19 @@ const ConsultingSection = () => {
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                  <p className="font-body text-foreground text-sm md:text-base">{benefit}</p>
+                  <p className="font-body text-white/90 text-sm md:text-base">{benefit}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-muted/30 p-4 sm:p-6 rounded-xl mb-8 border border-border/50">
-              <p className="font-body text-sm text-muted-foreground italic">
+            <div className="bg-white/5 p-4 sm:p-6 rounded-xl mb-8 border border-white/10">
+              <p className="font-body text-sm text-white/70 italic">
                 * This is a consulting service only. No reservations or operational services are included.
               </p>
             </div>
 
             <a
-              href="#travel-consulting-form"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 sm:px-8 py-3 sm:py-4 font-body font-semibold text-accent-foreground transition-all hover:shadow-glow hover:scale-[1.02]"
             >
               <Calendar className="h-4 w-4" />

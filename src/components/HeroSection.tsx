@@ -47,17 +47,27 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0"
+          className="absolute inset-0 bg-black"
         >
+          {/* Blurred Background for Mobile (to avoid black bars when using contain) */}
+          <img 
+            src={slide.src} 
+            alt="background blur"
+            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110 sm:hidden" 
+          />
+          
+          {/* Main Image: object-contain on mobile for full display, object-cover on desktop for original full-screen immersiveness */}
           <motion.img
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 8, ease: "easeOut" }}
             src={slide.src}
             alt={slide.city}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain sm:object-cover relative z-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+          
+          {/* Gradients */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 sm:from-black/30 via-transparent to-black/70 sm:to-black/60 z-20" />
         </motion.div>
       </AnimatePresence>
 
@@ -75,7 +85,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-6 sm:mb-8 leading-tight drop-shadow-xl"
+          className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight drop-shadow-xl"
         >
           Unveil the Soul
           <br />

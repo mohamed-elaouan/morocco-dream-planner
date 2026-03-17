@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Clock, ArrowRight, Compass } from "lucide-react";
 import toursImperial from "@/assets/Imperial_Cities_Cover.webp";
-import galleryChefchaouen from "@/assets/chaouen/DSC_0449.webp";
-import exoticMorocco from "@/assets/Exotic_Morocco_Cover.webp";
-import toursDesert from "@/assets/Sahara/photo_5834557504061817696_y.webp";
+import galleryChefchaouen from "@/assets/Exotic_Morocco_Cover.webp";
+import exoticMorocco from "@/assets/Merzouga/IMG_20201015_144043_920.webp";
+import toursDesert from "@/assets/Merzouga/RAD_9265_00001.webp";
 
 const tours = [
   {
@@ -56,7 +56,9 @@ const ToursSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-          {tours.map((tour, i) => (
+          {tours.map((tour, i) => {
+            const tourSlug = tour.title.toLowerCase().replace(/\s+/g, '-');
+            return (
             <motion.div
               key={tour.title}
               initial={{ opacity: 0, y: 40 }}
@@ -90,16 +92,37 @@ const ToursSection = () => {
 
                 <div className="pt-6 border-t border-border/60 flex items-center justify-between mt-auto">
                   <a
-                    href="/travel-consulting"
+                    href={`/tours/${tourSlug}`}
                     className="inline-flex items-center gap-2 text-base font-semibold text-foreground transition-all group-hover:text-accent group-hover:gap-3"
                   >
-                    Start Planning <ArrowRight className="h-5 w-5" />
+                    View Tour Details <ArrowRight className="h-5 w-5" />
                   </a>
                 </div>
               </div>
             </motion.div>
-          ))}
+          )})}
         </div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 font-body font-bold text-accent-foreground shadow-lg transition-all hover:scale-105 hover:shadow-glow text-base w-full sm:w-auto"
+          >
+            Design Your Journey
+          </a>
+          <a
+            href="/#about"
+            className="inline-flex items-center justify-center rounded-full border-2 border-foreground/10 bg-background px-8 py-4 font-body font-bold text-foreground transition-all hover:border-foreground/30 hover:bg-muted text-base w-full sm:w-auto"
+          >
+            Discover who we are <ArrowRight className="h-5 w-5 ml-2" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
