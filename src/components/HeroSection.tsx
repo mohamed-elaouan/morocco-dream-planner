@@ -63,6 +63,8 @@ const HeroSection = () => {
             transition={{ duration: 8, ease: "easeOut" }}
             src={slide.src}
             alt={slide.city}
+            fetchPriority={current === 0 ? "high" : "auto"}
+            loading={current === 0 ? "eager" : "lazy"}
             className="w-full h-full object-contain sm:object-cover relative z-10"
           />
           
