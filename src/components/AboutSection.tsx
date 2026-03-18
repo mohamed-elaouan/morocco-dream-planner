@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Users, MapPin, Star } from "lucide-react";
-<<<<<<< HEAD
 import aboutImg from "@/assets/image.png";
 
 const stats = [
@@ -10,14 +9,6 @@ const stats = [
   { icon: Users, label: "Satisfied Travelers", value: "5000+" },
   { icon: MapPin, label: "Moroccan Regions", value: "12" },
   { icon: Star, label: "Expert Guided Tours", value: "1000+" },
-=======
-import aboutImg from "@/assets/About.webp";
-
-const stats = [
-  { icon: Award, label: "Years Experience", value: "18+" },
-  { icon: Users, label: "Happy Travelers", value: "5000+" },
-  { icon: MapPin, label: "Regions", value: "12" },
->>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
 ];
 
 const AboutSection = () => {
@@ -25,7 +16,6 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-<<<<<<< HEAD
     <section id="about" className="py-24 md:py-32 bg-gradient-section relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 -z-10" />
@@ -124,65 +114,6 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-=======
-    <section id="about" className="py-20 md:py-24 bg-gradient-section">
-      <div className="container mx-auto px-4">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-elevated">
-              <img
-                src={aboutImg}
-                alt="Traditional Moroccan riad"
-                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-accent text-accent-foreground rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-glow">
-              <p className="font-heading text-2xl sm:text-3xl font-bold">Since</p>
-              <p className="font-heading text-3xl sm:text-4xl font-bold">2007</p>
-            </div>
-          </motion.div>
-
-          {/* Text */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="font-body text-accent text-sm tracking-widest uppercase mb-4">About Rad Morocco</p>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-              More Than Just a Destination
-            </h2>
-            <p className="font-body text-muted-foreground leading-relaxed mb-4 text-sm md:text-base">
-              Morocco is not just a destination — it is a layered, living culture that deserves to be experienced with depth and understanding.
-            </p>
-            <p className="font-body text-muted-foreground leading-relaxed mb-4 text-sm md:text-base">
-              Rad Morocco was founded by <strong className="text-foreground">Radouane El Aouan</strong>, a Certified National Tour Guide since 2007, with over 18 years of professional experience in Morocco's tourism industry.
-            </p>
-            <p className="font-body text-muted-foreground leading-relaxed mb-4 text-sm md:text-base">
-              Throughout his career, Rad has worked extensively with American and British travelers, international tour operators, and travel professionals seeking authentic, well-structured experiences. His expertise goes beyond guiding — it includes itinerary design, logistical planning, supplier coordination, and deep on-the-ground knowledge of Morocco's diverse regions.
-            </p>
-            <p className="font-body text-muted-foreground leading-relaxed mb-8 text-sm md:text-base">
-              What distinguishes Rad is not only experience, but perspective. Having worked closely with international markets for nearly two decades, he understands the expectations, travel styles, and standards required to create seamless and meaningful journeys. From the Atlas Mountains to the Sahara, from imperial cities to coastal retreats, every route is designed with precision, realism, and cultural depth.
-            </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center p-3 sm:p-0 rounded-xl bg-background/50 sm:bg-transparent">
-                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-accent mx-auto mb-2" />
-                  <p className="font-heading text-xl sm:text-2xl font-bold text-foreground">{stat.value}</p>
-                  <p className="font-body text-[10px] sm:text-xs text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
->>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
         </div>
       </div>
     </section>

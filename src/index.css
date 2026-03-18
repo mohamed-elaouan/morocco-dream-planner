@@ -160,10 +160,7 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
-<<<<<<< HEAD
   scroll-padding-top: 80px; /* Offset for fixed navbar */
-=======
->>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
 }
 
 /* Better touch targets on mobile */
@@ -188,7 +185,6 @@ html {
     max-width: 1920px;
   }
 }
-<<<<<<< HEAD
 
 @layer utilities {
   .animate-pulse-slow {
@@ -204,5 +200,3 @@ html {
     opacity: 0.5;
   }
 }
-=======
->>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
