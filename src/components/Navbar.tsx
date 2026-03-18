@@ -105,7 +105,7 @@ const Navbar = () => {
       {/* Accent stripe at the very top */}
       <div className="h-[3px] w-full bg-gradient-to-r from-amber-500 via-orange-400 to-amber-600" />
 
-      <div className="container mx-auto flex items-center justify-between px-4 py-2.5 md:py-3">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
 
         {/* ── Logo ─────────────────────────────────────────────────────────── */}
         <Link
@@ -113,17 +113,13 @@ const Navbar = () => {
           onClick={() => setMobileOpen(false)}
           className="flex items-center group shrink-0"
         >
-          <div className={[
-            "rounded-xl px-2 py-1 transition-all duration-300 group-hover:scale-105",
-            scrolled ? "bg-transparent" : "bg-white/15 backdrop-blur-sm",
-          ].join(" ")}>
-            <img
-              src={logo}
-              alt="RAD Morocco"
-              className="h-10 md:h-14 w-auto drop-shadow-lg"
-            />
-          </div>
+          <img
+            src={logo}
+            alt="RAD Morocco"
+            className="h-14 md:h-20 w-auto drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
+
 
         {/* ── Desktop nav ──────────────────────────────────────────────────── */}
         <div className="hidden lg:flex items-center gap-5 xl:gap-7">
