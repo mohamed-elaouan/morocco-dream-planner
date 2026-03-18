@@ -40,7 +40,11 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative h-[100svh] min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background images with Ken Burns effect */}
+<<<<<<< HEAD
       <AnimatePresence mode="sync">
+=======
+      <AnimatePresence mode="popLayout">
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
         <motion.div
           key={current}
           initial={{ opacity: 0 }}
@@ -72,14 +76,22 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* Content */}
+<<<<<<< HEAD
       <div className="relative z-30 container mx-auto px-4 text-center">
+=======
+      <div className="relative z-10 container mx-auto px-4 text-center">
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="font-body text-gold-light text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6 font-medium drop-shadow-md"
         >
+<<<<<<< HEAD
           Boutique Travel Designer  &  Private cultural  Guide
+=======
+          Boutique Travel Agency Based in Morocco
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -128,7 +140,11 @@ const HeroSection = () => {
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-orange-500 to-amber-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </a>
           <a
+<<<<<<< HEAD
             href="/contact"
+=======
+            href="/travel-consulting"
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
             className="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 sm:px-10 py-3.5 sm:py-4 font-body font-bold text-white transition-all hover:bg-white/20 hover:border-white/50 text-sm sm:text-base"
           >
             Personalize Your Journey
@@ -156,7 +172,11 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{ delay: 1.5, duration: 2, repeat: Infinity }}
+<<<<<<< HEAD
         className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-30 text-white/70 hover:text-white transition-colors"
+=======
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors"
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
       >
         <ChevronDown className="h-8 w-8 sm:h-10 sm:w-10" />
       </motion.a>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+<<<<<<< HEAD
 import { useLocation, Link } from "react-router-dom";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
 
@@ -9,6 +10,18 @@ const navLinks = [
   { label: "Tours", href: "/#tours" },
   { label: "Signature Experiences", href: "/#daytrips" },
   { label: "Happy Travelers", href: "/#gallery" },
+=======
+import { useLocation } from "react-router-dom";
+import logo from "@/assets/RAD_BRAND_LOGO.png";
+
+const navLinks = [
+  // { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Tours", href: "/#tours" },
+  { label: "Design  Tours", href: "/#daytrips" },
+  { label: "Local Experiences", href: "/#daytrips" },
+  { label: "Gallery", href: "/#gallery" },
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
   { label: "Travel Consulting", href: "/travel-consulting" },
   { label: "Contact", href: "/contact" },
 ];
@@ -25,6 +38,7 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+<<<<<<< HEAD
     setMobileOpen(false);
     
     // If it's an anchor link on the same page
@@ -39,6 +53,20 @@ const Navbar = () => {
         }
       }
     }
+=======
+    // If we're on the same page and the link is an anchor
+    if (href.startsWith("/#")) {
+      const hash = href.substring(1); // remove leading /
+      if (location.pathname === "/") {
+        // Same page: scroll to the element
+        e.preventDefault();
+        const element = document.querySelector(hash);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }
+      // different page: let it navigate naturally
+    }
+    setMobileOpen(false);
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
   };
 
   return (
@@ -52,17 +80,26 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
+<<<<<<< HEAD
         <Link to="/" className="flex items-center group">
+=======
+        <a href="/" className="flex items-center group">
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
           <img 
             src={logo} 
             alt="RAD Morocco" 
             className="h-12 md:h-16 w-auto transition-all duration-300 group-hover:scale-105 drop-shadow-lg" 
           />
+<<<<<<< HEAD
         </Link>
+=======
+        </a>
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
+<<<<<<< HEAD
             link.href.startsWith("/#") ? (
               <a
                 key={link.href}
@@ -82,6 +119,16 @@ const Navbar = () => {
                 {link.label}
               </Link>
             )
+=======
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className={`font-body text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full whitespace-nowrap ${scrolled ? 'text-foreground/80 hover:text-accent' : 'text-primary-foreground/90 hover:text-accent'}`}
+            >
+              {link.label}
+            </a>
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
           ))}
           <a
             href="https://wa.me/message/F2FIG7DSVSLDO1"
@@ -114,6 +161,7 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
+<<<<<<< HEAD
                 link.href.startsWith("/#") ? (
                   <a
                     key={link.href}
@@ -133,6 +181,16 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 )
+=======
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="font-body text-base font-medium text-foreground/80 hover:text-accent transition-colors py-2"
+                >
+                  {link.label}
+                </a>
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
               ))}
               <a
                 href="https://wa.me/message/F2FIG7DSVSLDO1"

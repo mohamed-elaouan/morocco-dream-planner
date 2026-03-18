@@ -29,8 +29,13 @@ const Footer = () => {
                 { label: "Home", href: "/#home" },
                 { label: "About", href: "/#about" },
                 { label: "Tours", href: "/#tours" },
+<<<<<<< HEAD
                 { label: "Signature Experiences", href: "/#daytrips" },
                 { label: "Happy Travelers", href: "/#gallery" },
+=======
+                { label: "Expériences", href: "/#daytrips" },
+                { label: "Gallery", href: "/#gallery" },
+>>>>>>> a88bd6b1928c5a563f4cf5637c85cd263fe06f4e
                 { label: "Travel Consulting", href: "/travel-consulting" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
