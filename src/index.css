@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 97%;
+    --foreground: 220 30% 15%;
+
+    --card: 35 25% 95%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 35 30% 97%;
+    --popover-foreground: 220 30% 15%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 35 30% 97%;
+
+    --secondary: 30 55% 55%;
+    --secondary-foreground: 35 30% 97%;
+
+    --muted: 35 20% 90%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 30 70% 50%;
+    --accent-foreground: 35 30% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 220 45% 25%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --gold: 38 70% 55%;
+    --gold-light: 38 60% 75%;
+    --terracotta: 15 60% 50%;
+    --sand: 35 35% 85%;
+    --sand-light: 35 30% 92%;
+    --navy: 220 45% 20%;
+    --navy-light: 220 35% 35%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 45% 20% / 0.85), hsl(15 60% 50% / 0.6));
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 55%), hsl(30 55% 55%));
+    --gradient-section: linear-gradient(180deg, hsl(35 30% 97%), hsl(35 25% 93%));
+
+    --shadow-card: 0 4px 20px hsl(220 45% 20% / 0.08);
+    --shadow-elevated: 0 10px 40px hsl(220 45% 20% / 0.12);
+    --shadow-glow: 0 0 30px hsl(38 70% 55% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Raleway', sans-serif;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 35 20% 92%;
+    --card: 220 25% 12%;
+    --card-foreground: 35 20% 92%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 35 20% 92%;
+    --primary: 38 70% 55%;
+    --primary-foreground: 220 30% 8%;
+    --secondary: 30 55% 55%;
+    --secondary-foreground: 220 30% 8%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 35 15% 65%;
+    --accent: 30 70% 50%;
+    --accent-foreground: 220 30% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 38 70% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  /* Improve image rendering */
+  img {
+    image-rendering: auto;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(38 70% 55%), hsl(30 55% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-section {
+    background: var(--gradient-section);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Hide scrollbar for category tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Exception for inline elements and small UI parts */
+  .inline-touch-override,
+  span > a,
+  p > a {
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+/* TV / Ultra-wide support */
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1920px;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
