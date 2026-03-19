@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, Facebook, Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
 
 const Footer = () => {
@@ -16,9 +16,20 @@ const Footer = () => {
               />
               <span className="font-heading text-xl md:text-2xl font-bold">RAD Morocco</span>
             </div>
-            <p className="font-body text-sm text-primary-foreground/70 leading-relaxed">
+            <p className="font-body text-sm text-primary-foreground/70 leading-relaxed mb-6">
               A boutique travel agency based in Morocco, crafting personalized journeys since 2007. Experience the magic of Morocco with expert-guided tours.
             </p>
+            <div className="flex gap-4">
+              <a href="https://web.facebook.com/radmorocco/reviews" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent hover:text-accent-foreground transition-all">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/radmorocco/" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent hover:text-accent-foreground transition-all">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://www.instagram.com/radmorocco/" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent hover:text-accent-foreground transition-all">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}

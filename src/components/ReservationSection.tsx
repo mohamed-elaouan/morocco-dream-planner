@@ -12,7 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import coverImage from "@/assets/Exotic_Morocco_Cover.webp";
+import contactImg from "@/assets/image.png";
 
 // NOTE: Add your Web3Forms Access Key here to receive emails directly!
 const WEB3FORMS_ACCESS_KEY = "eedd2341-84a9-4538-9128-e32268a18bda";
@@ -129,25 +129,8 @@ const ReservationSection = () => {
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
           className="max-w-7xl mx-auto bg-background rounded-[2.5rem] shadow-2xl overflow-hidden border border-border/50 grid lg:grid-cols-5"
         >
-          {/* Left Side: Image Presentation */}
-          <div className="hidden lg:block lg:col-span-2 relative">
-            <img 
-              src={coverImage} 
-              alt="Morocco Desert Travel" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-12 left-10 right-10">
-              <h3 className="text-3xl font-heading font-bold text-white mb-4">Let the journey begin</h3>
-              <p className="text-white/80 font-body leading-relaxed text-sm">
-                From the bustling souks of Marrakech to the silent, starry nights of the Sahara. 
-                Your authentic Moroccan experience is just a message away.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Side: The Form */}
-          <div className="lg:col-span-3 p-8 sm:p-12 md:p-16">
+          {/* Left Side: The Form */}
+          <div className="lg:col-span-3 order-2 lg:order-1 p-8 sm:p-12 md:p-16">
             <form onSubmit={handleSubmit} className="space-y-10">
               {/* Section: Personal Info */}
               <div>
@@ -349,6 +332,23 @@ const ReservationSection = () => {
                 </a>
               </p>
             </form>
+          </div>
+
+          {/* Right Side: Image Presentation */}
+          <div className="hidden lg:block lg:col-span-2 order-1 lg:order-2 relative">
+            <img 
+              src={contactImg} 
+              alt="Radouane El Aouan - Contact Us" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-12 left-10 right-10">
+              <h3 className="text-3xl font-heading font-bold text-white mb-4">Crafting Your Dream Journey</h3>
+              <p className="text-white/80 font-body leading-relaxed text-sm">
+                Whether you're looking for a signature experience or a completely custom itinerary, 
+                we're here to make it happen with precision and passion.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

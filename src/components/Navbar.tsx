@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
 
@@ -8,6 +8,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Tours", href: "/#tours" },
   { label: "Signature Experiences", href: "/#daytrips" },
+  { label: "Design Tours", href: "/design-tours" },
   { label: "Happy Travelers", href: "/#gallery" },
   { label: "Travel Consulting", href: "/travel-consulting" },
   { label: "Contact", href: "/contact" },
@@ -16,6 +17,7 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,6 +32,39 @@ const Navbar = () => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  // Scroll Spy Logic
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const sections = ["about", "tours", "daytrips", "gallery"];
+    const observers: IntersectionObserver[] = [];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Adjust to trigger when section is in the upper middle
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -62,7 +97,10 @@ const Navbar = () => {
   };
 
   const isActive = (href: string) => {
-    if (href.startsWith("/#")) return location.pathname === "/";
+    if (href.startsWith("/#")) {
+      const hash = href.slice(2);
+      return location.pathname === "/" && activeSection === hash;
+    }
     return location.pathname === href;
   };
 
@@ -241,6 +279,22 @@ const Navbar = () => {
                   ))}
 
                 <div className="h-px bg-slate-100 mx-4 my-2" />
+
+                {/* Social Links */}
+                <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold mb-3 px-4 mt-6">
+                  Follow Us
+                </p>
+                <div className="flex gap-4 px-4 mb-6">
+                  <a href="https://web.facebook.com/radmorocco/reviews" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-xl text-slate-600 hover:text-amber-600 transition-colors">
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/radmorocco/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-xl text-slate-600 hover:text-amber-600 transition-colors">
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                  <a href="https://www.instagram.com/radmorocco/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-xl text-slate-600 hover:text-amber-600 transition-colors">
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                </div>
 
                 {/* WhatsApp CTA */}
                 <a
