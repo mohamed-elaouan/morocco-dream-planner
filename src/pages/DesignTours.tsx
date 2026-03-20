@@ -3,13 +3,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SeoHead from "@/components/SeoHead";
 import { ArrowRight, ExternalLink, Camera, Scissors, Utensils, Music, Star, Compass } from "lucide-react";
+// ... image imports remain ...
 import photoImg from "@/assets/photography_tours.png";
 import textileImg from "@/assets/textile_tours.png";
 import foodImg from "@/assets/food_tasting.png";
 import musicImg from "@/assets/musical_discovery.png";
 import jewishImg from "@/assets/jewish_heritage.png";
 
+// ... tours array remains ...
 const tours = [
   {
     title: "Photography Tours",
@@ -51,6 +54,10 @@ const tours = [
 const DesignTours = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SeoHead 
+        title="Custom Design Tours" 
+        description="Curated à la carte itineraries. Explore our Photography Tours, Textile Scouting, Culinary Journeys, Musical Discovery, and Jewish Heritage Tours in Morocco."
+      />
       <Navbar />
       
       {/* Hero Header */}

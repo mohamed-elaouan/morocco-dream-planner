@@ -285,7 +285,7 @@ const ExperienceCard = ({ exp, index, isInView }: { exp: Experience; index: numb
 
                 {/* CTA */}
                 <a
-                  href="/travel-consulting#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-6 py-3 text-sm font-bold text-accent-foreground transition-all hover:shadow-glow hover:scale-[1.02]"
                 >
                   Book This Experience

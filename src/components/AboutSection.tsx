@@ -90,6 +90,7 @@ const AboutSection = () => {
               <img
                 src={aboutImg}
                 alt="Radouane El Aouan - Founder of Rad Morocco"
+                loading="lazy"
                 className="w-full h-auto max-h-[500px] object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

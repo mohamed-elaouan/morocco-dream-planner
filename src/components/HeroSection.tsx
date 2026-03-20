@@ -13,14 +13,14 @@ import heroSnake from "@/assets/hero section/snake charmer.webp";
 import heroTanneries from "@/assets/hero section/tanneries in fes.webp";
 
 const slides = [
-  { src: heroDesert, city: "Sahara Desert", subtitle: "Endless golden dunes" },
-  { src: heroFox, city: "Atlas Mountains", subtitle: "Wildlife encounters" },
+  { src: heroDesert, city: "Rabat", subtitle: "The white capital" },
+  { src: heroFox, city: "Desert Fox", subtitle: "Wildlife encounters" },
   { src: heroSnake, city: "Marrakech", subtitle: "The enchanted square" },
-  { src: heroRuins, city: "Volubilis", subtitle: "Roman mosaics & history" },
-  { src: heroMorocco, city: "Morocco", subtitle: "A land of wonder" },
+  { src: heroRuins, city: "Merzouga Desert", subtitle: "Golden dunes & starry nights" },
+  { src: heroMorocco, city: "volubilis", subtitle: "Roman ruins" },
   { src: heroTanneries, city: "Fes Tanneries", subtitle: "Living craft tradition" },
   { src: heroSchool, city: "Quranic School", subtitle: "Sacred heritage" },
-  { src: heroRad, city: "Morocco", subtitle: "Discover the magic" },
+  { src: heroRad, city: "Camel Ride", subtitle: "Camel ride in the desert" },
 ];
 
 const HeroSection = () => {

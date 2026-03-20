@@ -3,11 +3,17 @@ import ReservationSection from "@/components/ReservationSection";
 import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SeoHead from "@/components/SeoHead";
 import { motion } from "framer-motion";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SeoHead 
+        title="Contact Us & Reservations" 
+        description="Get in touch with RAD Morocco to start planning your perfect Moroccan adventure. Contact info@radmorocco.com or submit our tailored reservation form."
+      />
       <Navbar />
       
       {/* Hero banner for the Contact page */}
@@ -49,6 +55,7 @@ const Contact = () => {
       </section>
 
       <div className="flex-grow">
+        <GoogleReviewsSection />
         <ReservationSection />
       </div>
 

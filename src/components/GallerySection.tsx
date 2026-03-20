@@ -121,7 +121,7 @@ const categories: { key: Category; label: string }[] = [
   // { key: "merzouga", label: "Merzouga" },
   // { key: "aitbenhaddou", label: "Ait Ben Haddou" },
   { key: "volubilis", label: "Volubilis" },
-  { key: "marrakech", label: "Marrakech" },
+  { key: "tanger", label: "Tanger" },
   // { key: "imperial", label: "Imperial Cities" },
   // { key: "coastal", label: "Coastal Escapes" },
   // { key: "desert", label: "Desert Adventures" },
@@ -188,9 +188,9 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   { src: volubilis04, alt: "Volubilis Panorama", category: ["volubilis", "imperial"], span: "col-span-1 row-span-1" },
 
   // Others / Marrakech / Coastal
-  { src: otherMarrakech, alt: "Marrakech Square", category: ["marrakech", "family"], span: "md:col-span-2 row-span-2" },
+  { src: otherMarrakech, alt: "tanger Square", category: ["tanger", "family"], span: "md:col-span-2 row-span-2" },
   { src: otherCoast, alt: "Coastal Morocco", category: ["coastal", "family"], span: "col-span-1 row-span-2" },
-  { src: otherMedina, alt: "Moroccan Medina", category: ["marrakech", "imperial"], span: "col-span-1 row-span-2" },
+  { src: otherMedina, alt: "Moroccan Medina", category: ["tanger", "imperial"], span: "col-span-1 row-span-2" },
   { src: otherDades, alt: "Dades Valley", category: ["desert", "imperial"], span: "col-span-1 row-span-1" },
   { src: otherLandscape, alt: "Morocco Landscape", category: ["family", "desert"], span: "md:col-span-2 row-span-1" },
   { src: otherDesert, alt: "Desert Scenery", category: ["desert", "sahara"], span: "col-span-1 row-span-1" },

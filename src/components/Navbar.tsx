@@ -182,16 +182,31 @@ const Navbar = () => {
             )
           )}
 
-          {/* WhatsApp CTA */}
-          <a
-            href="https://wa.me/message/F2FIG7DSVSLDO1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 bg-amber-500 hover:bg-amber-400 text-white shadow-[0_4px_14px_rgba(245,158,11,0.5)] hover:shadow-[0_4px_20px_rgba(245,158,11,0.7)] hover:scale-105"
-          >
-            <Phone className="h-4 w-4" />
-            WhatsApp
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://wa.me/message/F2FIG7DSVSLDO1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 md:w-auto md:px-5 md:py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-[#25D366] hover:bg-[#1da851] text-white shadow-[0_4px_14px_rgba(37,211,102,0.4)] hover:shadow-[0_4px_20px_rgba(37,211,102,0.6)] hover:scale-105"
+              aria-label="WhatsApp"
+            >
+              <Phone className="h-4 w-4 md:mr-2" />
+              <span className="hidden md:block">WhatsApp</span>
+            </a>
+            
+            <a
+              href="https://t.me/elredouane"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 md:w-auto md:px-5 md:py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-[#0088cc] hover:bg-[#0077b5] text-white shadow-[0_4px_14px_rgba(0,136,204,0.4)] hover:shadow-[0_4px_20px_rgba(0,136,204,0.6)] hover:scale-105"
+              aria-label="Telegram"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:mr-2">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/>
+              </svg>
+              <span className="hidden md:block">Telegram</span>
+            </a>
+          </div>
         </div>
 
         {/* ── Mobile hamburger ─────────────────────────────────────────────── */}
@@ -294,18 +309,36 @@ const Navbar = () => {
                   <a href="https://www.instagram.com/radmorocco/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-xl text-slate-600 hover:text-amber-600 transition-colors">
                     <Instagram className="h-5 w-5" />
                   </a>
+                  <a href="https://t.me/elredouane" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 rounded-xl text-slate-600 hover:text-[#0088cc] transition-colors" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/>
+                    </svg>
+                  </a>
                 </div>
 
-                {/* WhatsApp CTA */}
-                <a
-                  href="https://wa.me/message/F2FIG7DSVSLDO1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-2xl bg-amber-500 hover:bg-amber-400 transition-colors px-5 py-4 text-sm font-bold text-white shadow-[0_4px_14px_rgba(245,158,11,0.4)] mx-1"
-                >
-                  <Phone className="h-4 w-4" />
-                  Contact via WhatsApp
-                </a>
+                {/* Bottom CTAs */}
+                <div className="flex flex-col gap-2 mx-1 mt-2">
+                  <a
+                    href="https://wa.me/message/F2FIG7DSVSLDO1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#1da851] transition-colors px-5 py-4 text-sm font-bold text-white shadow-[0_4px_14px_rgba(37,211,102,0.4)]"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Contact via WhatsApp
+                  </a>
+                  <a
+                    href="https://t.me/elredouane"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-2xl bg-[#0088cc] hover:bg-[#0077b5] transition-colors px-5 py-4 text-sm font-bold text-white shadow-[0_4px_14px_rgba(0,136,204,0.4)]"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                      <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/>
+                    </svg>
+                    Contact via Telegram
+                  </a>
+                </div>
 
                 <div className="h-2" />
               </nav>

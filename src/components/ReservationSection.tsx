@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Send, CalendarIcon, Users, MapPin, Mail, User, Phone, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
@@ -12,6 +12,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useSearchParams } from "react-router-dom";
+import { tours } from "@/components/ToursSection";
 import contactImg from "@/assets/image.png";
 
 // NOTE: Add your Web3Forms Access Key here to receive emails directly!
@@ -21,9 +23,18 @@ const ReservationSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [date, setDate] = useState<DateRange | undefined>();
+  const [selectedTour, setSelectedTour] = useState<string>("");
+
+  useEffect(() => {
+    const tourParam = searchParams.get("tour");
+    if (tourParam) {
+      setSelectedTour(tourParam);
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,6 +93,7 @@ const ReservationSection = () => {
         // Reset form here
         (e.target as HTMLFormElement).reset();
         setDate(undefined);
+        setSelectedTour("");
       } else {
         console.error("Web3Forms Error:", result);
         toast({
@@ -116,7 +128,7 @@ const ReservationSection = () => {
             Plan Your Trip
           </span>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Book Your Adventure
+            Book Your Experiences
           </h2>
           <p className="font-body text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Fill out the form below and our dedicated team will craft a personalized, unforgettable Moroccan itinerary tailored just for you.
@@ -200,6 +212,8 @@ const ReservationSection = () => {
                     <select
                       name="tour"
                       required
+                      value={selectedTour}
+                      onChange={(e) => setSelectedTour(e.target.value)}
                       className="w-full rounded-2xl border-2 border-border/50 bg-secondary/20 px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-4 focus:ring-accent/10 focus:border-accent/40 transition-all cursor-pointer hover:border-accent/30 appearance-none"
                     >
                       <option value="">Choose an experience...</option>
@@ -211,10 +225,9 @@ const ReservationSection = () => {
                         <option value="Tailored Private Experience (Flexible)">Tailored Private Experience (Flexible)</option>
                       </optgroup>
                       <optgroup label="Multi-Day Tours">
-                        <option value="Imperial Cities (8 Days)">Imperial Cities (8 Days)</option>
-                        <option value="Morocco Gems (12 Days)">Morocco Gems (12 Days)</option>
-                        <option value="Exotic Morocco (14 Days)">Exotic Morocco (14 Days)</option>
-                        <option value="Desert Escape (12 Days)">Desert Escape (12 Days)</option>
+                        {tours.map((t) => (
+                          <option key={t.id} value={t.title}>{t.title}</option>
+                        ))}
                       </optgroup>
                       <optgroup label="Custom Services">
                         <option value="Private Travel Consulting">Private Travel Consulting</option>

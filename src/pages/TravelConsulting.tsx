@@ -4,6 +4,7 @@ import ConsultingBookingForm from "@/components/ConsultingBookingForm";
 import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SeoHead from "@/components/SeoHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -22,6 +23,10 @@ const TravelConsulting = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead 
+        title="Private Travel Consulting" 
+        description="Plan your ultimate Morocco experience with personalized travel consulting and tailored premium itineraries."
+      />
       <Navbar />
       
       {/* Light Theme Hero banner for the page */}
