@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 
-// NOTE: Add your Web3Forms Access Key here to receive emails directly!
-const WEB3FORMS_ACCESS_KEY = "eedd2341-84a9-4538-9128-e32268a18bda";
+// NOTE: Email submissions are now handled via /api/sendEmail (Vercel Serverless)
+// Environment variables EMAIL_USER and EMAIL_PASS must be set in Vercel dashboard.
 
 const ConsultingBookingForm = () => {
   const { toast } = useToast();
@@ -36,15 +36,6 @@ const ConsultingBookingForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
-      toast({
-        title: "Configuration Required",
-        description: "Please add your Web3Forms Access Key in the code to enable form submissions.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
@@ -53,25 +44,21 @@ const ConsultingBookingForm = () => {
     // Format the single date into a string for the email
     const dateStr = date ? format(date, "LLL dd, yyyy") : "Not selected";
 
-    // Prepare Web3Forms payload specifically for Consulting
+    // Prepare payload specifically for our API
     const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: `New Private Consulting Request from ${data.name}`,
-      from_name: data.name as string,
+      name: data.name,
+      email: data.email,
+      phone: data.phone || "Not provided",
       "Service Requested": "Private Travel Consulting",
       "Selected Date": dateStr,
-      Name: data.name,
-      Email: data.email,
-      Phone: data.phone || "Not provided",
       "Consultation Details": data.message,
     };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -88,7 +75,7 @@ const ConsultingBookingForm = () => {
         setDate(undefined);
         setStep(1);
       } else {
-        console.error("Web3Forms Error:", result);
+        console.error("API Error:", result);
         toast({
           title: "Submission failed",
           description: result.message || "We couldn't submit your request. Please try again.",

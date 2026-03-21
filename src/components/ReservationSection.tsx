@@ -16,8 +16,8 @@ import { useSearchParams } from "react-router-dom";
 import { tours } from "@/components/ToursSection";
 import contactImg from "@/assets/image.png";
 
-// NOTE: Add your Web3Forms Access Key here to receive emails directly!
-const WEB3FORMS_ACCESS_KEY = "eedd2341-84a9-4538-9128-e32268a18bda";
+// NOTE: Email submissions are now handled via /api/sendEmail (Vercel Serverless)
+// Environment variables EMAIL_USER and EMAIL_PASS must be set in Vercel dashboard.
 
 const ReservationSection = () => {
   const ref = useRef(null);
@@ -35,20 +35,8 @@ const ReservationSection = () => {
       setSelectedTour(tourParam);
     }
   }, [searchParams]);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Check if the developer has updated the Access Key
-    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
-      toast({
-        title: "Configuration Required",
-        description: "Please add your Web3Forms Access Key in the code to enable form submissions.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
@@ -64,21 +52,22 @@ const ReservationSection = () => {
       }
     }
 
-    // Prepare Web3Forms payload
+    // Prepare payload for our custom API
     const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: `New Travel Consultation Request from ${data.name}`,
-      from_name: data.name,
-      ...data,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      tour: data.tour,
       date_range: dateStr,
+      guests: data.guests,
+      message: data.message,
     };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -95,7 +84,7 @@ const ReservationSection = () => {
         setDate(undefined);
         setSelectedTour("");
       } else {
-        console.error("Web3Forms Error:", result);
+        console.error("API Error:", result);
         toast({
           title: "Submission failed",
           description: result.message || "We couldn't submit your request. Please try again or email us directly.",
