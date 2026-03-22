@@ -55,8 +55,8 @@ const Contact = () => {
       </section>
 
       <div className="flex-grow">
-        <GoogleReviewsSection />
         <ReservationSection />
+        <GoogleReviewsSection />
       </div>
 
       <Footer />

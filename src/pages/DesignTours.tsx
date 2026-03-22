@@ -42,7 +42,9 @@ const tours = [
     icon: Music,
     image: musicImg,
     link: "https://radmorocco.com/musical-discovery-trip/",
-    description: "Music is a core element of Moroccan culture. Experience Andalusian, Gnawa, and Berber music traditions. Meet local musicians, explore Fez and Marrakesh, and immerse yourself in authentic cultural experiences."
+    articleLink: "/tours/musical-discovery",
+    buttonLabel: "View Leader Spotlight",
+    description: "Music is an essential element of Moroccan culture! Join Dr. Ingrid Kovacs for an incredible journey into the heart of Andalusian, Gnawa, and Berber music, interacting with local musicians and exploring historical towns."
   },
   {
     title: "Jewish Heritage Tours",
@@ -162,7 +164,7 @@ const DesignTours = () => {
                         className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-accent/30 bg-accent/5 px-7 py-3.5 font-body font-bold text-accent shadow-sm hover:bg-accent/10 hover:border-accent/50 hover:shadow-md transition-all hover:scale-105 text-base sm:text-lg group"
                       >
                         <BookOpen className="h-5 w-5 transition-transform group-hover:rotate-[-6deg]" />
-                        Read the Article
+                        {'buttonLabel' in tour && tour.buttonLabel ? (tour.buttonLabel as string) : 'Read the Article'}
                       </a>
                     )}
                     <a

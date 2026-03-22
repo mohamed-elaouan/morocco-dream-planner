@@ -279,7 +279,7 @@ const GoogleReviewsSection = () => {
               className="group flex flex-col items-center sm:items-end"
             >
               <span className="text-sm font-bold text-amber-600 group-hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1">
-                Read All <ChevronRight className="w-4 h-4 translate-y-px" />
+                Write a Review & Read All <ChevronRight className="w-4 h-4 translate-y-px" />
               </span>
               <span className="h-px w-0 bg-amber-500 group-hover:w-full transition-all duration-300 mt-1" />
             </a>
