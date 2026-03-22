@@ -12,6 +12,7 @@ const TravelConsulting = lazy(() => import("./pages/TravelConsulting"));
 const Contact = lazy(() => import("./pages/Contact"));
 const DesignTours = lazy(() => import("./pages/DesignTours"));
 const TourDetail = lazy(() => import("./pages/TourDetail"));
+const MoroccanCuisineArticle = lazy(() => import("./pages/MoroccanCuisineArticle"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 import PageLoader from "./components/PageLoader";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/design-tours" element={<DesignTours />} />
             <Route path="/tours/:id" element={<TourDetail />} />
+            <Route path="/articles/moroccan-cuisine" element={<MoroccanCuisineArticle />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

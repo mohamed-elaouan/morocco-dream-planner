@@ -4,11 +4,11 @@ import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SeoHead from "@/components/SeoHead";
-import { ArrowRight, ExternalLink, Camera, Scissors, Utensils, Music, Star, Compass } from "lucide-react";
+import { ArrowRight, ExternalLink, Camera, Scissors, Utensils, Music, Star, Compass, BookOpen } from "lucide-react";
 // ... image imports remain ...
-import photoImg from "@/assets/photography_tours.png";
+import photoImg from "@/assets/photograph_cover.webp";
 import textileImg from "@/assets/textile_tours.png";
-import foodImg from "@/assets/food_tasting.png";
+import foodImg from "@/assets/Food_Cover.jpg";
 import musicImg from "@/assets/musical_discovery.png";
 import jewishImg from "@/assets/jewish_heritage.png";
 
@@ -26,14 +26,16 @@ const tours = [
     icon: Scissors,
     image: textileImg,
     link: "https://radmorocco.com/textile-scouting-tour/",
-    description: "Explore the hidden world of Moroccan textiles. From ancient weaving techniques to contemporary designs, discover the rich heritage of Berber rugs and embroidery."
+    referenceLink: "https://www.textileartscouncil.org/post/travel-to-morocco-in-fall-2016-1",
+    description: "Explore the vibrant and hidden world of Moroccan textiles. From ancient weaving techniques to contemporary designs, discover the rich heritage of Berber rugs, embroidery, and natural dyeing. This exclusive Textile & Design Tour is meticulously curated by Rad, a certified Moroccan national guide specializing in craftsmanship and traditional textiles. His expertise is highly regarded and has been referenced by international textile tour programs, including a prestigious San Francisco-based museum initiative."
   },
   {
-    title: "Food Tasting & Cooking Class",
+    title: "Crafts & Culinary Journey of Morocco",
     icon: Utensils,
     image: foodImg,
     link: "https://radmorocco.com/food-tasting-and-cooking-class/",
-    description: "Discover Moroccan culinary traditions through guided food experiences and cooking sessions. (Reference: Textile Arts Council)"
+    articleLink: "/articles/moroccan-cuisine",
+    description: "Embark on a sensory journey through Morocco’s vibrant culinary landscape. From fragrant spice souks to exclusive cooking masterclasses with local chefs, discover the authentic flavors and artisanal heritage that set Moroccan cuisine apart."
   },
   {
     title: "Musical Discovery Trip",
@@ -132,8 +134,19 @@ const DesignTours = () => {
                   <p className="font-body text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
                     {tour.description}
                   </p>
-                  <div className="flex flex-wrap gap-4 pt-4">
+                  {'referenceLink' in tour && tour.referenceLink && (
                     <a
+                      href={tour.referenceLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent/80 transition-colors mt-2"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      View Textile Arts Council Reference
+                    </a>
+                  )}
+                  <div className="flex flex-wrap gap-4 pt-4">
+                    {/* <a
                       href={tour.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -141,13 +154,22 @@ const DesignTours = () => {
                     >
                       Learn more at radmorocco.com 
                       <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </a>
+                    </a> */}
                     <div className="w-full" />
+                    {'articleLink' in tour && tour.articleLink && (
+                      <a
+                        href={tour.articleLink}
+                        className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-accent/30 bg-accent/5 px-7 py-3.5 font-body font-bold text-accent shadow-sm hover:bg-accent/10 hover:border-accent/50 hover:shadow-md transition-all hover:scale-105 text-base sm:text-lg group"
+                      >
+                        <BookOpen className="h-5 w-5 transition-transform group-hover:rotate-[-6deg]" />
+                        Read the Article
+                      </a>
+                    )}
                     <a
                       href="/contact"
                       className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 font-body font-bold text-accent-foreground shadow-lg hover:shadow-glow transition-all hover:scale-105 text-base sm:text-lg"
                     >
-                      Start the journey
+                      Get in Touch
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </a>
                   </div>
