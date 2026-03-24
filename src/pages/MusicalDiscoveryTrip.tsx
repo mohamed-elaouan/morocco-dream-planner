@@ -99,7 +99,7 @@ const MusicalDiscoveryTrip = () => {
                   <img src={leaderImg} alt="Dr. Ingrid Kovacs" className="w-full h-full object-cover rounded-full shadow-lg border-4 border-white" />
                 </div>
                 <h3 className="author-name">Dr. Ingrid Kovacs</h3>
-                <p className="author-role">Tour Leader &amp; Professor of Music</p>
+                <p className="author-role">Professor of Music</p>
                 <div className="author-divider" />
                 
                 <p className="author-bio text-sm leading-relaxed mb-4">

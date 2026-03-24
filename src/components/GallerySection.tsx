@@ -5,12 +5,10 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 // Happy Travelers
 import happy01 from "@/assets/Happy_Travel/photo_5825444253474602549_y.webp";
 import happy02 from "@/assets/Happy_Travel/photo_5825444253474602550_y.webp";
-import happy03 from "@/assets/Happy_Travel/photo_5825444253474602552_y.webp";
+
 import happy04 from "@/assets/Happy_Travel/photo_5848272747682184103_y.webp";
-import happy05 from "@/assets/Happy_Travel/photo_5825444253474602553_y.webp";
 import happy06 from "@/assets/Happy_Travel/photo_5825444253474602554_y.webp";
 import happy07 from "@/assets/Happy_Travel/photo_5825444253474602555_y.webp";
-import happy08 from "@/assets/Happy_Travel/photo_5825444253474602556_y.webp";
 import happy09 from "@/assets/Happy_Travel/photo_5825444253474602557_y.webp";
 import happy10 from "@/assets/Happy_Travel/photo_5848272747682184105_y.webp";
 import happy11 from "@/assets/Happy_Travel/photo_5848272747682184118_y.webp";
@@ -22,6 +20,19 @@ import happy16 from "@/assets/Happy_Travel/photo_5848272747682184125_y.webp";
 import happy17 from "@/assets/Happy_Travel/photo_5848272747682184126_y.webp";
 import happyTicj from "@/assets/Happy_Travel/DSC_1218ticj.webp";
 import happyGroup from "@/assets/Happy_Travel/happ.webp";
+import newHappy01 from "@/assets/Happy_Travel/photo_2026-03-22_20-56-30.webp";
+import newHappy02 from "@/assets/Happy_Travel/photo_2026-03-22_20-57-04.webp";
+import newHappy03 from "@/assets/Happy_Travel/photo_2026-03-22_20-57-09.webp";
+import newHappy04 from "@/assets/Happy_Travel/photo_2026-03-22_20-57-14.webp";
+import newHappy05 from "@/assets/Happy_Travel/photo_2026-03-22_20-57-24.webp";
+import newHappy06 from "@/assets/Happy_Travel/photo_2026-03-22_20-57-29.webp";
+import newHappy07 from "@/assets/Happy_Travel/photo_2026-03-22_20-59-29.webp";
+import newHappy08 from "@/assets/Happy_Travel/photo_2026-03-22_20-59-34.webp";
+import newHappy09 from "@/assets/Happy_Travel/photo_2026-03-22_20-59-39.webp";
+import newHappy10 from "@/assets/Happy_Travel/photo_2026-03-22_20-59-45.webp";
+import newHappy11 from "@/assets/Happy_Travel/photo_2026-03-22_20-59-50.webp";
+import newHappy12 from "@/assets/Happy_Travel/photo_2026-03-22_21-00-05.webp";
+import newHappy13 from "@/assets/Happy_Travel/photo_2026-03-22_21-19-01.webp";
 
 // Casablanca
 import casa01 from "@/assets/Casablanca/photo_5834557504061817686_y.webp";
@@ -105,12 +116,13 @@ type Category =
   | "aitbenhaddou"
   | "chefchaouen"
   | "essaouira"
-  | "merzouga"
-  | "volubilis";
+  | "volubilis"
+  | "tanger";
 
 const categories: { key: Category; label: string }[] = [
   { key: "all", label: "All" },
   { key: "happy", label: "Happy Travelers" },
+  { key: "marrakech", label: "Marrakech" },
   // { key: "family", label: "Family Trips" },
   { key: "casablanca", label: "Casablanca" },
   { key: "fes", label: "Fes" },
@@ -118,8 +130,7 @@ const categories: { key: Category; label: string }[] = [
   { key: "chefchaouen", label: "Chefchaouen" },
   { key: "essaouira", label: "Essaouira" },
   { key: "sahara", label: "Sahara" },
-  // { key: "merzouga", label: "Merzouga" },
-  // { key: "aitbenhaddou", label: "Ait Ben Haddou" },
+  { key: "aitbenhaddou", label: "Ait Ben Haddou" },
   { key: "volubilis", label: "Volubilis" },
   { key: "tanger", label: "Tanger" },
   // { key: "imperial", label: "Imperial Cities" },
@@ -152,8 +163,8 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   // Rabat
   { src: rabat02, alt: "Rabat Kasbah", category: ["rabat", "imperial"], span: "col-span-1 row-span-2" },
   { src: rabat01, alt: "Rabat Architecture", category: ["rabat", "imperial"], span: "col-span-1 row-span-2" },
-  { src: rabat03, alt: "Rabat Modern", category: ["rabat", "imperial"], span: "col-span-1 row-span-1" },
-  { src: rabat04, alt: "Capital Charm", category: ["rabat", "imperial"], span: "col-span-1 row-span-1" },
+  { src: rabat03, alt: "Rabat Modern", category: ["rabat", "imperial", "happy", "family", "sahara"], span: "col-span-1 row-span-1" },
+  { src: rabat04, alt: "Capital Charm", category: ["rabat", "imperial", "happy", "family"], span: "col-span-1 row-span-1" },
 
   // Chefchaouen
   { src: chaouen01, alt: "Chefchaouen Alley", category: ["chefchaouen", "imperial"], span: "col-span-1 row-span-2" },
@@ -175,11 +186,11 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   { src: sahara03, alt: "Camel Trek", category: ["sahara", "desert"], span: "col-span-1 row-span-1" },
   { src: sahara01, alt: "Sahara Sunset", category: ["sahara", "desert"], span: "col-span-1 row-span-1" },
 
-  // Merzouga
-  { src: merzouga01, alt: "Merzouga Dunes", category: ["merzouga", "sahara", "desert"], span: "md:col-span-2 row-span-2" },
-  { src: merzouga02, alt: "Merzouga Sunset", category: ["merzouga", "sahara", "desert"], span: "col-span-1 row-span-2" },
-  { src: merzouga03, alt: "Merzouga Landscape", category: ["merzouga", "sahara", "desert"], span: "col-span-1 row-span-1" },
-  { src: merzouga04, alt: "Merzouga Golden Hour", category: ["merzouga", "desert"], span: "col-span-1 row-span-1" },
+  // Merzouga (Added to Sahara)
+  { src: merzouga01, alt: "Merzouga Dunes", category: ["sahara", "desert"], span: "md:col-span-2 row-span-2" },
+  { src: merzouga02, alt: "Merzouga Sunset", category: ["sahara", "desert"], span: "col-span-1 row-span-2" },
+  { src: merzouga03, alt: "Merzouga Landscape", category: ["sahara", "desert"], span: "col-span-1 row-span-1" },
+  { src: merzouga04, alt: "Merzouga Golden Hour", category: ["sahara", "desert"], span: "col-span-1 row-span-1" },
 
   // Volubilis
   { src: volubilis01, alt: "Volubilis Roman Ruins", category: ["volubilis", "imperial"], span: "col-span-1 row-span-2" },
@@ -188,7 +199,7 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   { src: volubilis04, alt: "Volubilis Panorama", category: ["volubilis", "imperial"], span: "col-span-1 row-span-1" },
 
   // Others / Marrakech / Coastal
-  { src: otherMarrakech, alt: "tanger Square", category: ["tanger", "family"], span: "md:col-span-2 row-span-2" },
+  { src: otherMarrakech, alt: "Tangier Square", category: ["tanger", "family"], span: "md:col-span-2 row-span-2" },
   { src: otherCoast, alt: "Coastal Morocco", category: ["coastal", "family"], span: "col-span-1 row-span-2" },
   { src: otherMedina, alt: "Moroccan Medina", category: ["tanger", "imperial"], span: "col-span-1 row-span-2" },
   { src: otherDades, alt: "Dades Valley", category: ["desert", "imperial"], span: "col-span-1 row-span-1" },
@@ -198,11 +209,10 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   // Happy Travelers
   { src: happy01, alt: "Happy Travelers in Morocco", category: ["happy", "family"], span: "md:col-span-2 row-span-1" },
   { src: happy10, alt: "Team Adventures", category: ["happy", "family"], span: "md:col-span-2 row-span-1" },
-  { src: happy09, alt: "Desert Explorers", category: ["happy", "sahara", "desert"], span: "md:col-span-2 row-span-1" },
+  { src: happy09, alt: "Desert Explorers", category: ["happy"], span: "md:col-span-2 row-span-1" },
   { src: happy14, alt: "City Tours", category: ["happy", "family"], span: "col-span-1 row-span-2" },
-  { src: happy03, alt: "Smiles in the Desert", category: ["happy", "sahara", "desert"], span: "col-span-1 row-span-2" },
+  // { src: happy03, alt: "Smiles in the Desert", category: ["happy", "sahara", "desert"], span: "col-span-1 row-span-2" },
   { src: happy04, alt: "Travel Memories", category: ["happy", "family"], span: "md:col-span-2 row-span-1" },
-  { src: happy05, alt: "Moroccan Adventure", category: ["happy", "family"], span: "col-span-1 row-span-2" },
   { src: happy12, alt: "Market Visits", category: ["happy", "family"], span: "col-span-1 row-span-1" },
   { src: happy11, alt: "Heritage Discovery", category: ["happy", "imperial"], span: "col-span-1 row-span-1" },
   { src: happy15, alt: "Cultural Tours", category: ["happy", "imperial"], span: "col-span-1 row-span-1" },
@@ -210,11 +220,23 @@ const images: { src: string; alt: string; category: Category[]; span: string }[]
   { src: happy16, alt: "Group Excursions", category: ["happy", "family"], span: "col-span-1 row-span-1" },
   { src: happy17, alt: "Morocco Memories", category: ["happy", "family"], span: "col-span-1 row-span-1" },
   { src: happy02, alt: "Group Tour Fun", category: ["happy", "family"], span: "col-span-1 row-span-1" },
-  { src: happy08, alt: "Journey Moments", category: ["happy", "family"], span: "col-span-1 row-span-1" },
   { src: happy07, alt: "Local Encounters", category: ["happy", "family"], span: "col-span-1 row-span-1" },
   { src: happy06, alt: "Cultural Experience", category: ["happy", "family"], span: "col-span-1 row-span-1" },
-  { src: happyTicj, alt: "Happy Group Photo", category: ["happy", "family"], span: "md:col-span-2 row-span-1" },
+  { src: happyTicj, alt: "Happy Group Photo", category: ["marrakech"], span: "md:col-span-2 row-span-1" },
   { src: happyGroup, alt: "Traveler Smiles", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy01, alt: "Morocco Group Travel 1", category: ["happy", "family"], span: "md:col-span-2 row-span-1" },
+  { src: newHappy02, alt: "Morocco Group Travel 2", category: ["happy", "family"], span: "col-span-1 row-span-2" },
+  { src: newHappy03, alt: "Morocco Group Travel 3", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy04, alt: "Morocco Group Travel 4", category: ["happy", "family"], span: "col-span-1 row-span-2" },
+  { src: newHappy05, alt: "Morocco Group Travel 5", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy06, alt: "Morocco Group Travel 6", category: ["happy", "family"], span: "md:col-span-2 row-span-2" },
+  { src: newHappy07, alt: "Morocco Group Travel 7", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy08, alt: "Morocco Group Travel 8", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy09, alt: "Morocco Group Travel 9", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy10, alt: "Morocco Group Travel 10", category: ["happy", "family"], span: "col-span-1 row-span-1" },
+  { src: newHappy11, alt: "Morocco Group Travel 11", category: ["marrakech"], span: "col-span-1 row-span-1" },
+  { src: newHappy12, alt: "Morocco Group Travel 12", category: ["happy", "family"], span: "col-span-1 row-span-2" },
+  { src: newHappy13, alt: "Morocco Group Travel 13", category: ["happy", "family"], span: "col-span-1 row-span-1" },
 ];
 
 const GallerySection = () => {

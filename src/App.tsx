@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
 // Lazy-loaded pages
@@ -20,29 +20,42 @@ import PageLoader from "./components/PageLoader";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/travel-consulting" element={<TravelConsulting />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/design-tours" element={<DesignTours />} />
-            <Route path="/tours/:id" element={<TourDetail />} />
-            <Route path="/articles/moroccan-cuisine" element={<MoroccanCuisineArticle />} />
-            <Route path="/tours/musical-discovery" element={<MusicalDiscoveryTrip />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-  </HelmetProvider>
-);
+const App = () => {
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).tagName === 'IMG') {
+        e.preventDefault();
+      }
+    };
+    
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => document.removeEventListener('contextmenu', handleContextMenu);
+  }, []);
+
+  return (
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/travel-consulting" element={<TravelConsulting />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/design-tours" element={<DesignTours />} />
+              <Route path="/tours/:id" element={<TourDetail />} />
+              <Route path="/articles/moroccan-cuisine" element={<MoroccanCuisineArticle />} />
+              <Route path="/tours/musical-discovery" element={<MusicalDiscoveryTrip />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+    </HelmetProvider>
+  );
+};
 
 export default App;

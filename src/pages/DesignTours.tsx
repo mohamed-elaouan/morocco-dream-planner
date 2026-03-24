@@ -7,6 +7,7 @@ import SeoHead from "@/components/SeoHead";
 import { ArrowRight, ExternalLink, Camera, Scissors, Utensils, Music, Star, Compass, BookOpen } from "lucide-react";
 // ... image imports remain ...
 import photoImg from "@/assets/photograph_cover.webp";
+import designToursCover from "@/assets/Dessign_Tours_PicCover.webp";
 import textileImg from "@/assets/textile_tours.png";
 import foodImg from "@/assets/Food_Cover.jpg";
 import musicImg from "@/assets/musical_discovery.png";
@@ -68,7 +69,7 @@ const DesignTours = () => {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={photoImg} 
+            src={designToursCover} 
             alt="Design Tours Hero" 
             className="w-full h-full object-cover opacity-30 scale-105"
           />

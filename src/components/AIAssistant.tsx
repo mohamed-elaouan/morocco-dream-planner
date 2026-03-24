@@ -12,9 +12,9 @@ type Message = {
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
 const quickReplies = [
-  "What tours do you offer?",
-  "Tell me about day trips",
-  "How do I book?",
+  "What custom Design Tours do you offer?",
+  "Tell me about the Musical Discovery Tour",
+  "How do I request a quote?",
   "Best time to visit Morocco?",
 ];
 
