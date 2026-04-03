@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { initGA } from "@/lib/analytics";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 // Lazy-loaded pages
 const Index = lazy(() => import("./pages/Index"));
@@ -20,7 +22,21 @@ import PageLoader from "./components/PageLoader";
 
 const queryClient = new QueryClient();
 
+/**
+ * Inner component that lives inside <BrowserRouter> so it can
+ * safely call useLocation() via the usePageTracking hook.
+ */
+const AnalyticsTracker = () => {
+  usePageTracking();
+  return null;
+};
+
 const App = () => {
+  // Initialize GA4 once on mount
+  useEffect(() => {
+    initGA();
+  }, []);
+
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       if ((e.target as HTMLElement).tagName === 'IMG') {
@@ -39,23 +55,25 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/travel-consulting" element={<TravelConsulting />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/design-tours" element={<DesignTours />} />
-              <Route path="/tours/:id" element={<TourDetail />} />
-              <Route path="/articles/moroccan-cuisine" element={<MoroccanCuisineArticle />} />
-              <Route path="/tours/musical-discovery" element={<MusicalDiscoveryTrip />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+            <AnalyticsTracker />
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/travel-consulting" element={<TravelConsulting />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/design-tours" element={<DesignTours />} />
+                <Route path="/tours/:id" element={<TourDetail />} />
+                <Route path="/articles/moroccan-cuisine" element={<MoroccanCuisineArticle />} />
+                <Route path="/tours/musical-discovery" element={<MusicalDiscoveryTrip />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
     </HelmetProvider>
   );
 };
 
 export default App;
+

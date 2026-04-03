@@ -5,7 +5,6 @@ import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SeoHead from "@/components/SeoHead";
 import { motion } from "framer-motion";
-import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 
 const Contact = () => {
   return (
@@ -56,7 +55,6 @@ const Contact = () => {
 
       <div className="flex-grow">
         <ReservationSection />
-        <GoogleReviewsSection />
       </div>
 
       <Footer />
