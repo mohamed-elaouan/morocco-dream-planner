@@ -8,6 +8,23 @@ import SeoHead from "@/components/SeoHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
+const consultingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Morocco Private Travel Consulting",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "RAD Morocco",
+    "url": "https://radmorocco.com"
+  },
+  "description": "Personalized travel consulting for Morocco — custom itineraries, private guides, and luxury tour planning by certified guide Radouane El Aouan.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Morocco"
+  },
+  "serviceType": "Travel Consulting"
+};
+
 const TravelConsulting = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
 
@@ -24,8 +41,11 @@ const TravelConsulting = () => {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead 
-        title="Private Travel Consulting" 
-        description="Plan your ultimate Morocco experience with personalized travel consulting and tailored premium itineraries."
+        title="Morocco Private Travel Consulting — Custom Itinerary Planning" 
+        description="Plan your perfect Morocco trip with private travel consulting. Custom itineraries designed by certified guide Radouane El Aouan — from Casablanca day tours to Sahara desert adventures."
+        canonical="https://radmorocco.com/travel-consulting"
+        keywords="Morocco private guide, private tour Morocco, Morocco custom itinerary, Morocco travel consulting, private Morocco travel planner"
+        structuredData={consultingSchema}
       />
       <Navbar />
       

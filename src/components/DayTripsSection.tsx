@@ -6,6 +6,10 @@ import casa02 from "@/assets/Casablanca/20220528_162250.jpg";
 import casa03 from "@/assets/Casablanca/davide.jpg";
 import casa04 from "@/assets/Casablanca/20250303_153308.jpg";
 import foodCover from "@/assets/FoodFlavors.jpg";
+// Verified public domain tourism images from Wikimedia Commons
+const rabatImg = "https://upload.wikimedia.org/wikipedia/commons/d/d9/Hassan_Tower%2C_Rabat%2C_Marocco_%28%D8%B5%D9%88%D9%85%D8%B9%D8%A9_%D8%AD%D8%B3%D8%A7%D9%86_%29.jpg";
+const tangierImg = "https://upload.wikimedia.org/wikipedia/commons/a/a4/Tanger_cor.jpg";
+
 
 interface Experience {
   id: number;
@@ -136,6 +140,56 @@ const experiences: Experience[] = [
     idealFor: ["Repeat visitors", "Travelers with specific interests", "Families with varied needs", "Luxury clients"],
     color: "from-emerald-600 to-teal-500",
   },
+];
+
+const rabatExperiences: Experience[] = [
+  {
+    id: 101,
+    title: "Rabat: The Elegant Capital",
+    subtitle: "The Intersection of Heritage and Modernity",
+    duration: "Full Day",
+    format: "Private Experience",
+    formatIcon: "flexible",
+    intro:
+      "As Morocco's political and administrative heart, Rabat offers a refined, coastal atmosphere where ancient history meets contemporary life. Our curated experiences in the capital take you through the majestic Oudaia Kasbah, with its winding blue-and-white alleys overlooking the Atlantic, and the iconic Hassan Tower, a testament to 12th-century Almohad ambition. Unlike the frenetic energy of other cities, Rabat reveals itself slowly—through its wide boulevards, the serene Chellah necropolis, and a vibrant arts scene that reflects the modern identity of the Kingdom.",
+    image: rabatImg,
+    highlights: [
+      "Majestic Oudaia Kasbah",
+      "Iconic Hassan Tower",
+      "Serene Chellah necropolis",
+      "Wide boulevards",
+      "Vibrant arts scene"
+    ],
+    unique:
+      "Rabat reveals itself slowly—through its wide boulevards, the serene Chellah necropolis, and a vibrant arts scene that reflects the modern identity of the Kingdom.",
+    idealFor: ["History enthusiasts", "Culture lovers"],
+    color: "from-teal-600 to-emerald-500",
+  }
+];
+
+const tangierExperiences: Experience[] = [
+  {
+    id: 201,
+    title: "Tangier: The Gateway of Continents",
+    subtitle: "Where the Mediterranean Meets the Atlantic",
+    duration: "Full Day",
+    format: "Private Experience",
+    formatIcon: "flexible",
+    intro:
+      "Perched at the very edge of Africa, Tangier is a city of light, legends, and international intrigue. Known for decades as a sanctuary for writers and artists, the \"White City\" offers a unique blend of Moroccan tradition and European influence. We invite you to explore the Kasbah's panoramic viewpoints, the bustling Petit Socco, and the legendary Caves of Hercules. From its historic medina to the chic waterfront, Tangier is a gateway not just to a continent, but to a crossroads of civilizations that has shaped the history of the Mediterranean.",
+    image: tangierImg,
+    highlights: [
+      "Kasbah's panoramic viewpoints",
+      "Bustling Petit Socco",
+      "Legendary Caves of Hercules",
+      "Historic medina",
+      "Chic waterfront"
+    ],
+    unique:
+      "Tangier is a gateway not just to a continent, but to a crossroads of civilizations that has shaped the history of the Mediterranean.",
+    idealFor: ["Art and literature lovers", "History buffs"],
+    color: "from-indigo-600 to-blue-500",
+  }
 ];
 
 const FormatIcon = ({ type }: { type: string }) => {
@@ -312,9 +366,9 @@ const DayTripsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12 md:mb-16"
         >
-          <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Signature Experiences</p>
+          <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Day tours</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Local Experiences
+            Private Luxury Tours Morocco
           </h2>
           <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Each experience is thoughtfully designed to offer depth, authenticity, and personal connection — far beyond a standard tour.
@@ -324,7 +378,7 @@ const DayTripsSection = () => {
         {/* Casablanca Experiences */}
         <div className="mb-16 md:mb-24">
           <div className="flex items-center gap-4 mb-8 sm:mb-12">
-            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Casablanca</h3>
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Casablanca Private tours</h3>
             <div className="h-px flex-grow bg-border/60"></div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -334,27 +388,33 @@ const DayTripsSection = () => {
           </div>
         </div>
 
-        {/* Marrakech Experiences Placeholder */}
+        {/* Rabat Experiences */}
         <div className="mb-16 md:mb-24">
           <div className="flex items-center gap-4 mb-8 sm:mb-12">
-            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground opacity-60">Marrakech</h3>
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Rabat — The Elegant Capital</h3>
             <div className="h-px flex-grow bg-border/60"></div>
           </div>
-          <div className="bg-secondary/5 border-2 border-dashed border-border/50 rounded-3xl p-12 lg:p-20 text-center text-muted-foreground flex flex-col items-center justify-center">
-            <p className="font-body text-lg font-medium">Coming Soon</p>
-            <p className="font-body text-sm mt-2 opacity-70">Curated experiences in Marrakech are currently being designed.</p>
+          <div className="flex justify-center">
+            <div className="w-full sm:w-[500px]">
+              {rabatExperiences.map((exp, i) => (
+                <ExperienceCard key={exp.id} exp={exp} index={i} isInView={isInView} />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Fes Experiences Placeholder */}
+        {/* Tangier Experiences */}
         <div>
           <div className="flex items-center gap-4 mb-8 sm:mb-12">
-            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground opacity-60">Fes</h3>
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Tangier — The Gateway of Continents</h3>
             <div className="h-px flex-grow bg-border/60"></div>
           </div>
-          <div className="bg-secondary/5 border-2 border-dashed border-border/50 rounded-3xl p-12 lg:p-20 text-center text-muted-foreground flex flex-col items-center justify-center">
-            <p className="font-body text-lg font-medium">Coming Soon</p>
-            <p className="font-body text-sm mt-2 opacity-70">Curated experiences in Fes are currently being designed.</p>
+          <div className="flex justify-center">
+            <div className="w-full sm:w-[500px]">
+              {tangierExperiences.map((exp, i) => (
+                <ExperienceCard key={exp.id} exp={exp} index={i} isInView={isInView} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

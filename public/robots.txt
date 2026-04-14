@@ -12,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /assets/
+
+# Sitemap
+Sitemap: https://radmorocco.com/sitemap.xml

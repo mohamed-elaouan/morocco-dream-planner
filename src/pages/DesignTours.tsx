@@ -56,12 +56,41 @@ const tours = [
   }
 ];
 
+const designToursSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Custom Design Tours in Morocco",
+    "description": "Specialized private tours in Morocco including photography, textile scouting, culinary journeys, musical discovery, and Jewish heritage tours.",
+    "url": "https://radmorocco.com/design-tours",
+    "numberOfItems": 5,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Photography Tours Morocco", "url": "https://radmorocco.com/design-tours#photography" },
+      { "@type": "ListItem", "position": 2, "name": "Textile Scouting Tour Morocco", "url": "https://radmorocco.com/design-tours#textile" },
+      { "@type": "ListItem", "position": 3, "name": "Moroccan Culinary Journey", "url": "https://radmorocco.com/design-tours#culinary" },
+      { "@type": "ListItem", "position": 4, "name": "Musical Discovery Trip Morocco", "url": "https://radmorocco.com/design-tours#musical" },
+      { "@type": "ListItem", "position": 5, "name": "Jewish Heritage Tours Morocco", "url": "https://radmorocco.com/design-tours#jewish" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radmorocco.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Design Tours", "item": "https://radmorocco.com/design-tours" }
+    ]
+  }
+];
+
 const DesignTours = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SeoHead 
-        title="Custom Design Tours" 
-        description="Curated à la carte itineraries. Explore our Photography Tours, Textile Scouting, Culinary Journeys, Musical Discovery, and Jewish Heritage Tours in Morocco."
+        title="Custom Morocco Tours — Photography, Jewish Heritage, Culinary & More" 
+        description="Design your perfect Morocco tour. Choose from private photography tours, Jewish heritage experiences, culinary journeys, musical discovery trips, and textile scouting — all custom-tailored by certified guide Radouane El Aouan."
+        canonical="https://radmorocco.com/design-tours"
+        keywords="Morocco custom itinerary, Jewish heritage Morocco tour, Morocco photography tour, private tour Morocco, custom Morocco travel, Casablanca private guide"
+        structuredData={designToursSchema}
       />
       <Navbar />
       

@@ -130,7 +130,7 @@ const HeroSection = () => {
             href="#tours"
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-accent px-4 sm:px-10 py-3 sm:py-4 font-body font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-orange-500/30 text-[10px] sm:text-base whitespace-nowrap"
           >
-            <span className="relative z-10">Explore Our Tours</span>
+            <span className="relative z-10">Explore Our Morocco tours</span>
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-orange-500 to-amber-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </a>
           <a

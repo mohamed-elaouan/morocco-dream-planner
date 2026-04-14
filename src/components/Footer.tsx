@@ -49,11 +49,29 @@ const Footer = () => {
               {[
                 { label: "Home", href: "/#home" },
                 { label: "About", href: "/#about" },
-                { label: "Tours", href: "/#tours" },
-                { label: "Signature Experiences", href: "/#daytrips" },
+                { label: "Morocco tours", href: "/#tours" },
+                { label: "Day tours", href: "/#daytrips" },
                 { label: "Happy Travelers", href: "/#gallery" },
                 { label: "Travel Consulting", href: "/travel-consulting" },
+                { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block font-body text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <h3 className="font-heading text-lg font-bold mb-3 mt-6">Popular Pages</h3>
+            <div className="space-y-2">
+              {[
+                { label: "Casablanca Private Tours", href: "/casablanca-private-tours" },
+                { label: "Jewish Heritage Morocco", href: "/jewish-heritage-morocco" },
+                { label: "Morocco Custom Itinerary", href: "/morocco-custom-itinerary" },
+                { label: "Design Tours", href: "/design-tours" },
               ].map((link) => (
                 <a
                   key={link.label}

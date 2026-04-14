@@ -206,7 +206,7 @@ const ReservationSection = () => {
                       className="w-full rounded-2xl border-2 border-border/50 bg-secondary/20 px-4 py-3.5 font-body text-sm text-foreground focus:outline-none focus:ring-4 focus:ring-accent/10 focus:border-accent/40 transition-all cursor-pointer hover:border-accent/30 appearance-none"
                     >
                       <option value="">Choose an experience...</option>
-                      <optgroup label="Signature Expériences">
+                      <optgroup label="Day tours">
                         <option value="The Essence of Casablanca (4–5 Hours)">The Essence of Casablanca (4–5 Hours)</option>
                         <option value="Cultural Walking Experience (3 Hours)">Cultural Walking Experience (3 Hours)</option>
                         <option value="Moroccan Flavors: Culinary Journey (3 Hours)">Moroccan Flavors: Culinary Journey (3 Hours)</option>
@@ -347,7 +347,7 @@ const ReservationSection = () => {
             <div className="absolute bottom-12 left-10 right-10">
               <h3 className="text-3xl font-heading font-bold text-white mb-4">Crafting Your Dream Journey</h3>
               <p className="text-white/80 font-body leading-relaxed text-sm">
-                Whether you're looking for a signature experience or a completely custom itinerary, 
+                Whether you're looking for a day tour or a completely custom itinerary, 
                 we're here to make it happen with precision and passion.
               </p>
             </div>
