@@ -55,7 +55,7 @@ const ToursSection = () => {
             Private Morocco Tours
           </span>
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Our Popular Morocco Tours
+            Our Luxury Private Morocco Tours
           </h2>
           <p className="font-body text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Explore Morocco with a private guide and custom-designed itinerary. Every tour is tailored to your interests — from Imperial Cities and Sahara Desert adventures to cultural deep-dives and coastal escapes.

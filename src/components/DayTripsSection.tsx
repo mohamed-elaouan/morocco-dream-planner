@@ -368,7 +368,7 @@ const DayTripsSection = () => {
         >
           <p className="font-body text-sm tracking-[0.2em] uppercase text-accent mb-3">Day tours</p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Private Luxury Tours Morocco
+            Private Cultural Local Morocco Tours
           </h2>
           <p className="font-body text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             Each experience is thoughtfully designed to offer depth, authenticity, and personal connection — far beyond a standard tour.
