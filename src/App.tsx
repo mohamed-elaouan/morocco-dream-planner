@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { initGA } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import PageLoader from "./components/PageLoader";
 
 // Lazy-loaded pages
 const Index = lazy(() => import("./pages/Index"));
@@ -28,8 +29,6 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BestCasablancaWalkingTour = lazy(() => import("./pages/blog/BestCasablancaWalkingTour"));
 const HassanIIMosqueGuide = lazy(() => import("./pages/blog/HassanIIMosqueGuide"));
 const JewishHeritageMoroccoGuide = lazy(() => import("./pages/blog/JewishHeritageMoroccoGuide"));
-
-import PageLoader from "./components/PageLoader";
 
 const queryClient = new QueryClient();
 

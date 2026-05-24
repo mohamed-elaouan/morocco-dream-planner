@@ -50,12 +50,12 @@ const HeroSection = () => {
           className="absolute inset-0 bg-black"
         >
           {/* Blurred Background for Mobile (to avoid black bars when using contain) */}
-          <img 
-            src={slide.src} 
+          <img
+            src={slide.src}
             alt="background blur"
-            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110 sm:hidden" 
+            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110 sm:hidden"
           />
-          
+
           {/* Main Image: object-contain on mobile for full display, object-cover on desktop */}
           <motion.img
             initial={{ scale: 1.1 }}
@@ -67,7 +67,7 @@ const HeroSection = () => {
             loading={current === 0 ? "eager" : "lazy"}
             className="w-full h-full object-contain sm:object-cover relative z-10"
           />
-          
+
           {/* Gradients: Reduced top-gradient on mobile to improve text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 sm:from-black/30 via-transparent to-black/70 sm:to-black/60 z-20" />
         </motion.div>
