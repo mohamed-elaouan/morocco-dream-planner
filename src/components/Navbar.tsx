@@ -8,7 +8,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Morocco tours", href: "/#tours" },
   { label: "Day tours", href: "/#daytrips" },
-  { label: "Design Tours", href: "/design-tours" },
+  { label: "Signature Tours", href: "/design-tours" },
   { label: "Happy Travelers", href: "/#gallery" },
   { label: "Travel Consulting", href: "/travel-consulting" },
   { label: "Blog", href: "/blog" },

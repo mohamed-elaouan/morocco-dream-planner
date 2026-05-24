@@ -21,7 +21,7 @@ const DesignToursSection = () => {
             </span>
             
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-8 leading-tight">
-              Design Tours
+              Signature Tours
             </h2>
             
             <div className="space-y-6 mb-12">
@@ -41,7 +41,7 @@ const DesignToursSection = () => {
                 href="/design-tours"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 font-body font-bold text-accent-foreground shadow-lg transition-all hover:shadow-glow text-lg gap-2"
               >
-                Check our Design Tours
+                Check our Signature Tours
                 <ArrowRight className="h-5 w-5" />
               </a>
             </motion.div>

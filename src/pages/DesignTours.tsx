@@ -28,7 +28,7 @@ const tours = [
     image: textileImg,
     link: "https://radmorocco.com/textile-scouting-tour/",
     referenceLink: "https://www.textileartscouncil.org/post/travel-to-morocco-in-fall-2016-1",
-    description: "Explore the vibrant and hidden world of Moroccan textiles. From ancient weaving techniques to contemporary designs, discover the rich heritage of Berber rugs, embroidery, and natural dyeing. This exclusive Textile & Design Tour is meticulously curated by Rad, a certified Moroccan national guide specializing in craftsmanship and traditional textiles. His expertise is highly regarded and has been referenced by international textile tour programs, including a prestigious San Francisco-based museum initiative."
+    description: "Explore the vibrant and hidden world of Moroccan textiles. From ancient weaving techniques to contemporary designs, discover the rich heritage of Berber rugs, embroidery, and natural dyeing. This exclusive Textile & Signature Tour is meticulously curated by Rad, a certified Moroccan national guide specializing in craftsmanship and traditional textiles. His expertise is highly regarded and has been referenced by international textile tour programs, including a prestigious San Francisco-based museum initiative."
   },
   {
     title: "Crafts & Culinary Journey of Morocco",
@@ -60,7 +60,7 @@ const designToursSchema = [
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Custom Design Tours in Morocco",
+    "name": "Custom Signature Tours in Morocco",
     "description": "Specialized private tours in Morocco including photography, textile scouting, culinary journeys, musical discovery, and Jewish heritage tours.",
     "url": "https://radmorocco.com/design-tours",
     "numberOfItems": 5,
@@ -77,7 +77,7 @@ const designToursSchema = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radmorocco.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Design Tours", "item": "https://radmorocco.com/design-tours" }
+      { "@type": "ListItem", "position": 2, "name": "Signature Tours", "item": "https://radmorocco.com/design-tours" }
     ]
   }
 ];
@@ -99,7 +99,7 @@ const DesignTours = () => {
         <div className="absolute inset-0">
           <img 
             src={designToursCover} 
-            alt="Design Tours Hero" 
+            alt="Signature Tours Hero" 
             className="w-full h-full object-cover opacity-30 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent/20" />

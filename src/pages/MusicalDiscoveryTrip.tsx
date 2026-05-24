@@ -82,7 +82,7 @@ const MusicalDiscoveryTrip = () => {
         <div className="article-container">
           <Link to="/design-tours" className="article-back-link">
             <ArrowLeft className="back-icon" />
-            Back to Design Tours
+            Back to Signature Tours
           </Link>
 
           <div className="article-layout">

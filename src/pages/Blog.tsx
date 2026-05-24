@@ -123,9 +123,9 @@ const Blog = () => {
                     <span className="text-xs font-bold bg-accent/10 text-accent px-3 py-1 rounded-full">
                       <Tag className="w-3 h-3 inline mr-1" />{post.category}
                     </span>
-                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    {/* <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Clock className="w-3 h-3" />{post.readTime}
-                    </span>
+                    </span> */}
                   </div>
                   <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors leading-tight">
                     <Link to={`/blog/${post.slug}`}>

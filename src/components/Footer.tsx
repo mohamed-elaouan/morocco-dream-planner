@@ -71,7 +71,7 @@ const Footer = () => {
                 { label: "Casablanca Private Tours", href: "/casablanca-private-tours" },
                 { label: "Jewish Heritage Morocco", href: "/jewish-heritage-morocco" },
                 { label: "Morocco Custom Itinerary", href: "/morocco-custom-itinerary" },
-                { label: "Design Tours", href: "/design-tours" },
+                { label: "Signature Tours", href: "/design-tours" },
               ].map((link) => (
                 <a
                   key={link.label}
