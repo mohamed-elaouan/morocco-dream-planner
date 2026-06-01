@@ -12,15 +12,25 @@ import heroFox from "@/assets/hero section/funnic fox.webp";
 import heroSnake from "@/assets/hero section/snake charmer.webp";
 import heroTanneries from "@/assets/hero section/tanneries in fes.webp";
 
+// Mobile-optimized hero section images
+import mobileHeroRabat from "@/assets/mobile_hero-section/photo_5834557504061817676_y.webp";
+import mobileHeroFox from "@/assets/mobile_hero-section/Food_tasting Cover.jpg";
+import mobileHeroMarrakech from "@/assets/mobile_hero-section/photo_2026-03-22_20-59-50.webp";
+import mobileHeroDesert from "@/assets/mobile_hero-section/photo desert me.jpg";
+import mobileHeroRuins from "@/assets/mobile_hero-section/DSC_4443.webp";
+import mobileHeroFes from "@/assets/mobile_hero-section/photo_5834557504061817702_y.webp";
+import mobileHeroSchool from "@/assets/mobile_hero-section/photo_5848272747682184099_y.webp";
+import mobileHeroRad from "@/assets/mobile_hero-section/RAD_9256.jpg";
+
 const slides = [
-  { src: heroDesert, city: "Rabat", subtitle: "The white capital" },
-  { src: heroFox, city: "Desert Fox", subtitle: "Wildlife encounters" },
-  { src: heroSnake, city: "Marrakech", subtitle: "The enchanted square" },
-  { src: heroRuins, city: "Merzouga Desert", subtitle: "Golden dunes & starry nights" },
-  { src: heroMorocco, city: "volubilis", subtitle: "Roman ruins" },
-  { src: heroTanneries, city: "Fes Tanneries", subtitle: "Living craft tradition" },
-  { src: heroSchool, city: "Quranic School", subtitle: "Sacred heritage" },
-  { src: heroRad, city: "Camel Ride", subtitle: "Camel ride in the desert" },
+  { src: heroDesert, mobileSrc: mobileHeroRabat, city: "Rabat", subtitle: "The white capital" },
+  { src: heroFox, mobileSrc: mobileHeroFox, city: "Desert Fox", subtitle: "Wildlife encounters" },
+  { src: heroSnake, mobileSrc: mobileHeroMarrakech, city: "Marrakech", subtitle: "The enchanted square" },
+  { src: heroRuins, mobileSrc: mobileHeroDesert, city: "Merzouga Desert", subtitle: "Golden dunes & starry nights" },
+  { src: heroMorocco, mobileSrc: mobileHeroRuins, city: "volubilis", subtitle: "Roman ruins" },
+  { src: heroTanneries, mobileSrc: mobileHeroFes, city: "Fes Tanneries", subtitle: "Living craft tradition" },
+  { src: heroSchool, mobileSrc: mobileHeroSchool, city: "Quranic School", subtitle: "Sacred heritage" },
+  { src: heroRad, mobileSrc: mobileHeroRad, city: "Camel Ride", subtitle: "Camel ride in the desert" },
 ];
 
 const HeroSection = () => {
@@ -31,7 +41,7 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 7000);
+    const timer = setInterval(next, 3000);
     return () => clearInterval(timer);
   }, [next]);
 
@@ -49,24 +59,30 @@ const HeroSection = () => {
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0 bg-black"
         >
-          {/* Blurred Background for Mobile (to avoid black bars when using contain) */}
-          <img
-            src={slide.src}
-            alt="background blur"
-            className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110 sm:hidden"
-          />
+          {/* Blurred Background for Mobile (using mobile-optimized source on small screens) */}
+          <picture className="absolute inset-0 w-full h-full sm:hidden">
+            <source media="(max-width: 639px)" srcSet={slide.mobileSrc} />
+            <img
+              src={slide.src}
+              alt="background blur"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110"
+            />
+          </picture>
 
-          {/* Main Image: object-contain on mobile for full display, object-cover on desktop */}
-          <motion.img
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 8, ease: "easeOut" }}
-            src={slide.src}
-            alt={slide.city}
-            fetchPriority={current === 0 ? "high" : "auto"}
-            loading={current === 0 ? "eager" : "lazy"}
-            className="w-full h-full object-contain sm:object-cover relative z-10"
-          />
+          {/* Main Image: object-cover on mobile for new mobile-friendly background, object-cover on desktop */}
+          <picture className="absolute inset-0 w-full h-full">
+            <source media="(max-width: 639px)" srcSet={slide.mobileSrc} />
+            <motion.img
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 8, ease: "easeOut" }}
+              src={slide.src}
+              alt={slide.city}
+              fetchPriority={current === 0 ? "high" : "auto"}
+              loading={current === 0 ? "eager" : "lazy"}
+              className="w-full h-full object-cover relative z-10"
+            />
+          </picture>
 
           {/* Gradients: Reduced top-gradient on mobile to improve text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 sm:from-black/30 via-transparent to-black/70 sm:to-black/60 z-20" />
