@@ -154,23 +154,7 @@ export default defineConfig(async ({ mode }) => ({
   build: {
     target: 'esnext',
     cssCodeSplit: true,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-
-          if (/[\\/]node_modules[\\/](react|react-dom|react-router-dom|react-helmet-async|@tanstack[\\/]react-query)[\\/]/.test(id)) {
-            return "react-vendor";
-          }
-
-          if (/[\\/]node_modules[\\/](@radix-ui|lucide-react|framer-motion|sonner|react-day-picker|date-fns|embla-carousel-react|recharts|cmdk|vaul|react-markdown)[\\/]/.test(id)) {
-            return "ui-vendor";
-          }
-
-          return "vendor";
-        },
-      }
-    }
+    // Custom manualChunks is removed to prevent chunk load-order issues (e.g. createContext of undefined)
   },
   resolve: {
     alias: {
