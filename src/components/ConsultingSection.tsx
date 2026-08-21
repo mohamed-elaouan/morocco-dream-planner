@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, Calendar, Map, Compass, BookOpen, Clock, PenTool } from "lucide-react";
-import founderImg from "@/assets/image.png";
+import founderImg from "@/assets/image.webp";
 
 const benefits = [
   { icon: Clock, text: "Private 30-minute strategy session" },

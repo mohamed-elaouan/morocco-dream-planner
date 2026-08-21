@@ -1,7 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
@@ -30,8 +28,6 @@ const BestCasablancaWalkingTour = lazy(() => import("./pages/blog/BestCasablanca
 const HassanIIMosqueGuide = lazy(() => import("./pages/blog/HassanIIMosqueGuide"));
 const JewishHeritageMoroccoGuide = lazy(() => import("./pages/blog/JewishHeritageMoroccoGuide"));
 
-const queryClient = new QueryClient();
-
 /**
  * Inner component that lives inside <BrowserRouter> so it can
  * safely call useLocation() via the usePageTracking hook.
@@ -44,7 +40,19 @@ const AnalyticsTracker = () => {
 const App = () => {
   // Initialize GA4 once on mount
   useEffect(() => {
-    initGA();
+    const startAnalytics = () => initGA();
+    const idleWindow = window as unknown as {
+      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const idle = idleWindow.requestIdleCallback
+      ? idleWindow.requestIdleCallback(startAnalytics, { timeout: 5000 })
+      : window.setTimeout(startAnalytics, 2500);
+
+    return () => {
+      if (idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(idle);
+      else window.clearTimeout(idle as number);
+    };
   }, []);
 
   useEffect(() => {
@@ -60,14 +68,12 @@ const App = () => {
 
   return (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AnalyticsTracker />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AnalyticsTracker />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
                 {/* Core Pages */}
                 <Route path="/" element={<Index />} />
                 <Route path="/travel-consulting" element={<TravelConsulting />} />
@@ -90,11 +96,9 @@ const App = () => {
                 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </HelmetProvider>
   );
 };

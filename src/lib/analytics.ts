@@ -3,6 +3,7 @@ import ReactGA from "react-ga4";
 const MEASUREMENT_ID = "G-XN68JPEWR0";//Q7ZWFVFJB5
 
 let isInitialized = false;
+let pendingPageView: { path: string; title?: string } | null = null;
 
 /**
  * Initialize Google Analytics 4.
@@ -19,6 +20,12 @@ export const initGA = (): void => {
 
   isInitialized = true;
 
+  if (pendingPageView) {
+    const { path, title } = pendingPageView;
+    pendingPageView = null;
+    trackPageView(path, title);
+  }
+
   if (import.meta.env.DEV) {
     console.log("[Analytics] GA4 initialized with ID:", MEASUREMENT_ID);
   }
@@ -28,7 +35,10 @@ export const initGA = (): void => {
  * Track a page view. Call this on every route change.
  */
 export const trackPageView = (path: string, title?: string): void => {
-  if (!isInitialized) return;
+  if (!isInitialized) {
+    pendingPageView = { path, title };
+    return;
+  }
 
   ReactGA.send({
     hitType: "pageview",

@@ -1,15 +1,17 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ToursSection from "@/components/ToursSection";
-import DayTripsSection from "@/components/DayTripsSection";
-import GallerySection from "@/components/GallerySection";
-import DesignToursSection from "@/components/DesignToursSection";
-import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import Footer from "@/components/Footer";
-import AIAssistant from "@/components/AIAssistant";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SeoHead from "@/components/SeoHead";
+import DeferredSection from "@/components/DeferredSection";
+import AIAssistantLauncher from "@/components/AIAssistantLauncher";
+
+const loadAbout = () => import("@/components/AboutSection");
+const loadTours = () => import("@/components/ToursSection");
+const loadDayTrips = () => import("@/components/DayTripsSection");
+const loadDesignTours = () => import("@/components/DesignToursSection");
+const loadReviews = () => import("@/components/GoogleReviewsSection");
+const loadGallery = () => import("@/components/GallerySection");
 
 const homepageSchema = [
   {
@@ -151,14 +153,14 @@ const Index = () => {
       />
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <ToursSection />
-      <DayTripsSection />
-      <DesignToursSection />
-      <GoogleReviewsSection />
-      <GallerySection />
+      <DeferredSection id="about" load={loadAbout} minHeight="38rem" />
+      <DeferredSection id="tours" load={loadTours} minHeight="44rem" />
+      <DeferredSection id="daytrips" load={loadDayTrips} minHeight="40rem" />
+      <DeferredSection id="design-tours" load={loadDesignTours} minHeight="34rem" />
+      <DeferredSection id="reviews" load={loadReviews} minHeight="32rem" />
+      <DeferredSection id="gallery" load={loadGallery} minHeight="48rem" />
       <Footer />
-      <AIAssistant />
+      <AIAssistantLauncher />
       <WhatsAppButton />
     </div>
   );

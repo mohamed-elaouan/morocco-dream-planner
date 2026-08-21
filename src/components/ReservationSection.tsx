@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/popover";
 import { useSearchParams } from "react-router-dom";
 import { tours } from "@/components/ToursSection";
-import contactImg from "@/assets/image.png";
+import contactImg from "@/assets/image.webp";
+import { buildReservationPayload } from "@/lib/email-payload";
 
-// NOTE: Email submissions are now handled via /api/sendEmail (Vercel Serverless)
-// Environment variables EMAIL_USER and EMAIL_PASS must be set in Vercel dashboard.
+// Email submissions are handled by the cPanel PHP endpoint at /api/sendEmail.
 
 const ReservationSection = () => {
   const ref = useRef(null);
@@ -53,15 +53,7 @@ const ReservationSection = () => {
     }
 
     // Prepare payload for our custom API
-    const payload = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      tour: data.tour,
-      date_range: dateStr,
-      guests: data.guests,
-      message: data.message,
-    };
+    const payload = buildReservationPayload(data, dateStr);
 
     try {
       const response = await fetch("/api/sendEmail", {

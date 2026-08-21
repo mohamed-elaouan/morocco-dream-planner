@@ -8,7 +8,7 @@ import { ArrowRight, ExternalLink, Camera, Scissors, Utensils, Music, Star, Comp
 // ... image imports remain ...
 import photoImg from "@/assets/photograph_cover.webp";
 import designToursCover from "@/assets/Dessign_Tours_PicCover.webp";
-import textileImg from "@/assets/textile_tours.png";
+import textileImg from "@/assets/textile_tours.webp";
 import foodImg from "@/assets/Food_Cover.jpg";
 import musicImg from "@/assets/musical_discovery.png";
 import jewishImg from "@/assets/jewish_heritage.png";

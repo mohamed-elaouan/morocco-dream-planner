@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import logo from "@/assets/RAD_BRAND_LOGO.png";
@@ -130,11 +129,9 @@ const Navbar = () => {
   const mobileDefaultClass = "text-slate-700";
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <nav
       className={[
+        "navbar-enter",
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
           ? "bg-white/95 backdrop-blur-lg shadow-[0_2px_20px_rgba(0,0,0,0.10)] border-b border-amber-100"
@@ -222,31 +219,13 @@ const Navbar = () => {
               : "text-white bg-white/15 hover:bg-white/25 backdrop-blur-sm",
           ].join(" ")}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={mobileOpen ? "close" : "open"}
-              initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
-              animate={{ rotate: 0, opacity: 1, scale: 1 }}
-              exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
-              transition={{ duration: 0.15 }}
-            >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </motion.div>
-          </AnimatePresence>
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {/* ── Mobile menu drawer ─────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="lg:hidden overflow-hidden"
-          >
+      {mobileOpen && (
+          <div className="mobile-menu-enter lg:hidden overflow-hidden">
             <div className="bg-white border-t border-amber-100 shadow-2xl">
               <nav className="container mx-auto px-3 py-4 flex flex-col gap-1">
 
@@ -344,10 +323,9 @@ const Navbar = () => {
                 <div className="h-2" />
               </nav>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+      )}
+    </nav>
   );
 };
 

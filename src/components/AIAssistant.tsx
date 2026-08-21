@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, User, Loader2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useToast } from "@/hooks/use-toast";
+import { getChatEndpoint } from "@/lib/chat";
 
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+const CHAT_URL = getChatEndpoint(import.meta.env.VITE_SUPABASE_URL);
 
 const quickReplies = [
   "What custom Design Tours do you offer?",
@@ -18,8 +19,12 @@ const quickReplies = [
   "Best time to visit Morocco?",
 ];
 
-const AIAssistant = () => {
-  const [isOpen, setIsOpen] = useState(false);
+type AIAssistantProps = {
+  initiallyOpen?: boolean;
+};
+
+const AIAssistant = ({ initiallyOpen = false }: AIAssistantProps) => {
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: "Welcome to RAD Morocco! 🇲🇦 I'm your AI travel assistant. Ask me anything about tours, day trips, Moroccan culture, or help planning your dream adventure!" },
   ]);
@@ -43,6 +48,7 @@ const AIAssistant = () => {
     let assistantSoFar = "";
 
     try {
+      if (!CHAT_URL) throw new Error("AI assistant is not configured");
       const resp = await fetch(CHAT_URL, {
         method: "POST",
         headers: {
@@ -123,11 +129,11 @@ const AIAssistant = () => {
       if (!assistantSoFar) {
         setMessages((prev) => [...prev, { role: "assistant", content: "I'm sorry, I couldn't generate a response. Please try again!" }]);
       }
-    } catch (e: any) {
-      console.error("Chat error:", e);
+    } catch (error: unknown) {
+      console.error("Chat error:", error);
       toast({
         title: "Chat Error",
-        description: e.message || "Failed to connect. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to connect. Please try again.",
         variant: "destructive",
       });
       setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I'm having trouble connecting right now. Please try again or contact us at info@radmorocco.com." }]);

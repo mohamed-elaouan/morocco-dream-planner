@@ -6,9 +6,8 @@ import casa02 from "@/assets/Casablanca/20220528_162250.jpg";
 import casa03 from "@/assets/Casablanca/davide.jpg";
 import casa04 from "@/assets/Casablanca/20250303_153308.jpg";
 import foodCover from "@/assets/FoodFlavors.jpg";
-// Verified public domain tourism images from Wikimedia Commons
-const rabatImg = "https://upload.wikimedia.org/wikipedia/commons/d/d9/Hassan_Tower%2C_Rabat%2C_Marocco_%28%D8%B5%D9%88%D9%85%D8%B9%D8%A9_%D8%AD%D8%B3%D8%A7%D9%86_%29.jpg";
-const tangierImg = "https://upload.wikimedia.org/wikipedia/commons/a/a4/Tanger_cor.jpg";
+import rabatImg from "@/assets/rabat-hassan-tower.jpg";
+import tangierImg from "@/assets/tangier-corniche.jpg";
 
 
 interface Experience {

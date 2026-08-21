@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Users, MapPin, Star } from "lucide-react";
-import aboutImg from "@/assets/image.png";
+import aboutImg from "@/assets/image.webp";
 
 const stats = [
   { icon: Award, label: "Professional Experience", value: "18+ Yrs" },

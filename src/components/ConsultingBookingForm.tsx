@@ -6,9 +6,9 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { buildConsultingPayload } from "@/lib/email-payload";
 
-// NOTE: Email submissions are now handled via /api/sendEmail (Vercel Serverless)
-// Environment variables EMAIL_USER and EMAIL_PASS must be set in Vercel dashboard.
+// Email submissions are handled by the cPanel PHP endpoint at /api/sendEmail.
 
 const ConsultingBookingForm = () => {
   const { toast } = useToast();
@@ -45,14 +45,7 @@ const ConsultingBookingForm = () => {
     const dateStr = date ? format(date, "LLL dd, yyyy") : "Not selected";
 
     // Prepare payload specifically for our API
-    const payload = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone || "Not provided",
-      "Service Requested": "Private Travel Consulting",
-      "Selected Date": dateStr,
-      "Consultation Details": data.message,
-    };
+    const payload = buildConsultingPayload(data, dateStr);
 
     try {
       const response = await fetch("/api/sendEmail", {

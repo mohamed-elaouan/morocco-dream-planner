@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/raleway-latin.woff2") format("woff2");
+}
 
 @tailwind base;
 @tailwind components;
@@ -94,6 +108,88 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@keyframes hero-image-in {
+  from { opacity: 0; transform: scale(1.06); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-image-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.025); }
+}
+
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-city-in {
+  from { opacity: 0; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(.5rem); }
+}
+
+@keyframes loader-pulse {
+  0%, 100% { opacity: .3; transform: scale(1); }
+  50% { opacity: .6; transform: scale(1.2); }
+}
+
+@keyframes loader-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-.6rem); }
+}
+
+@keyframes loader-progress {
+  from { transform: scaleX(0); opacity: 0; }
+  25%, 100% { transform: scaleX(1); opacity: 1; }
+}
+
+.hero-image {
+  animation: hero-image-in 1.2s ease-out both;
+}
+
+.hero-image-exit {
+  animation: hero-image-out 1.2s ease-out both;
+}
+
+.hero-copy-enter {
+  animation: hero-copy-in .7s ease-out both;
+}
+
+.hero-copy-delay-1 { animation-delay: .2s; }
+.hero-copy-delay-2 { animation-delay: .35s; }
+.hero-copy-delay-3 { animation-delay: .65s; }
+.hero-city-enter { animation: hero-city-in .45s ease-out both; }
+.hero-scroll-indicator { animation: bob 2s ease-in-out infinite; }
+.navbar-enter { animation: hero-copy-in .45s ease-out both; }
+.mobile-menu-enter { animation: hero-copy-in .22s ease-out both; }
+.page-loader-glow { animation: loader-pulse 2s ease-in-out infinite; }
+.page-loader-logo { animation: loader-float 3s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-image-exit,
+  .hero-copy-enter,
+  .hero-city-enter,
+  .hero-scroll-indicator {
+    animation: none;
+  }
+}
+.page-loader-progress { animation: loader-progress 2s linear infinite; transform-origin: left; }
+.page-loader-caption { animation: hero-copy-in .7s .4s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
 

@@ -12,7 +12,7 @@ import "@/styles/MoroccanCuisineArticle.css";
 
 // Assets
 import musicImg from "@/assets/musical_discovery.png";
-import leaderImg from "@/assets/Ingrid_Kovacs.png";
+import leaderImg from "@/assets/Ingrid_Kovacs.webp";
 
 const PullQuote = ({ children }: { children: React.ReactNode }) => (
   <motion.blockquote
